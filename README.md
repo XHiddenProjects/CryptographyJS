@@ -13,7 +13,7 @@ A simple JS library for Cryptography
     * [Decode](#Vigenère-Cipher-(decode))
     * [Configuration](#Vigenère-Cipher-configuration)
   * [Flags](#flags)
-
+***
 ## Initiate
 To load up the script:
 ```html
@@ -22,7 +22,7 @@ To load up the script:
 //Cryptography goes here
 </script>
 ```
-
+***
 ## Cryptographies
 Here is the current list of cryptographies
 | Name | Encodable | Decodable | Hashable | Forcable | Description |
@@ -30,7 +30,7 @@ Here is the current list of cryptographies
 | CaesarCipher  | ✔️  | ✔️ |  ❌   |    ✔️      | Encodes/Decodes string in Caesar Cipher |
 | VigenereCipher| ✔️ | ✔️ | ❌ | ❌ |          Encodes/Decodes string in Vigenere Cipher |
 
-
+***
 ### Caesar Cipher
 Caesar Cipher is a common cipher that shifts letters based on key value
 
@@ -160,7 +160,7 @@ console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.U
 }
 */
 ```
-
+***
 ### Vigenère Cipher
 Vigenère Cipher, just like Caesar Cipher, uses string length as a key.
 
@@ -179,7 +179,7 @@ console.log(Cryptography.VigenereCipher.decode('RMNVAABFHS', 'KickMeNowP')); //H
 #### Vigenère Cipher (Configuration)
 **Refer back to [Ceasar Cipher - Configuration](#caesar-cipher-(configuration))**
 
-
+***
 ### Flags
 These are some options that you can use for parameters. **Note:** This only works for `.settings(...)` methods for any acceptable cryptography.
 | Constant | Value | Path |
