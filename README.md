@@ -178,6 +178,14 @@ console.log(Cryptography.VigenereCipher.decode('RMNVAABFHS', 'KickMeNowP')); //H
 
 #### Vigenère Cipher (Configuration)
 **Refer back to [Ceasar Cipher - Configuration](#caesar-cipher-(configuration))**
+One thing added is:
+
+**repeatMode** - Automatically fixes the key to be added/removed characters based on string length.
+
+```js
+console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.KEY_MODE_REPEAT}).decode('LXFOPVEFRNHR', 'LEMON')); //ATTACKATDAWN
+```
+
 
 ***
 ### Flags
@@ -189,4 +197,5 @@ These are some options that you can use for parameters. **Note:** This only work
 | NUMBERS | '0123456789' | _Cryptography.flags.NUMBERS_ |
 | SPACE | ' ' | _Cryptography.flags.SPACE_ |
 | SPECIAL_CHARS | '!@#$%^&*()_+-=[]{}\|;:\'",.<>?/~' | _Cryptography.flags.SPECIAL_CHARS_ |
+| KEY_MODE_REPEAT | TRUE | _Cryptography.flags.KEY_MODE_REPEAT__ |
 
