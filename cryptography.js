@@ -8,6 +8,7 @@ options: Object.freeze({
     UPPERCASE_LETTERS: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     LOWERCASE_LETTERS: 'abcdefghijklmnopqrstuvwxyz',
     NUMBERS: '0123456789',
+    SPACE: ' '
 })
 }
 Cryptography.CaesarCipher = {
@@ -18,7 +19,7 @@ Cryptography.CaesarCipher = {
      * @returns {Cryptography.CaesarCipher}
      */
     settings: (options={chars:Cryptography.options.UPPERCASE_LETTERS})=>{
-        if(options.chars) Cryptography.CaesarCipher.chars = options.chars.replaceAll(' ','');
+        if(options.chars) Cryptography.CaesarCipher.chars = options.chars;
         return Cryptography.CaesarCipher;
     },
     /**
@@ -29,23 +30,38 @@ Cryptography.CaesarCipher = {
      */
     encode: (str,key)=>{
         if(!key) throw new TypeError('Key must have a value to encode');
-        const cards = Cryptography.CaesarCipher.chars.split(''),
+        let cards = Cryptography.CaesarCipher.chars.split(''),
         splice = str.split('').map((i)=>{
             if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.options.UPPERCASE_LETTERS))
-                return i.replaceAll(' ','');
+                return i;
             else if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)) 
-                return i.replaceAll(' ','').toLowerCase();
-            else return i.replaceAll(' ','').toUpperCase();
-        }).filter(k=>k!=='');
+                return i.toLowerCase();
+            else return i.toUpperCase();
+        }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
+        const canSpace = cards.includes(' ') ? true : false;
+        cards = cards.filter(i=>i!==' ');
         let encoded='';
         for(let i=0;i<splice.length;i++){
-            if(cards[cards.indexOf(splice[i])+key]){
-                const index = cards.indexOf(splice[i])+key;
-                encoded+=cards[index];
+            if(!canSpace){
+                if(cards[cards.indexOf(splice[i])+key]){
+                    const index = cards.indexOf(splice[i])+key;
+                    encoded+=cards[index];
+                }else{
+                    const index = (cards.indexOf(splice[i])+key)-cards.length;
+                    encoded+=cards[index];
+                }
             }else{
-                const index = (cards.indexOf(splice[i])+key)-cards.length;
-                encoded+=cards[index];
+                if(splice[i]!==' '){
+                    if(cards[cards.indexOf(splice[i])+key]){
+                        const index = cards.indexOf(splice[i])+key;
+                        encoded+=cards[index];
+                    }else{
+                        const index = (cards.indexOf(splice[i])+key)-cards.length;
+                        encoded+=cards[index];
+                    }
+                }else encoded+=' ';
             }
+            
         }
         return encoded;
     },
@@ -61,47 +77,77 @@ Cryptography.CaesarCipher = {
             let lastStr='',k=1;
             while(!lastStr.match('undefined')){
                 decoded[k] = '';
-                const cards = Cryptography.CaesarCipher.chars.split(''),
+                let cards = Cryptography.CaesarCipher.chars.split(''),
                 splice = str.split('').map((i)=>{
                     if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.options.UPPERCASE_LETTERS))
-                        return i.replaceAll(' ','');
+                        return i;
                     else if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)) 
-                        return i.replaceAll(' ','').toLowerCase();
-                    else return i.replaceAll(' ','').toUpperCase();
-                });
+                        return i.toLowerCase();
+                    else return i.toUpperCase();
+                }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
+                const canSpace = cards.includes(' ') ? true : false;
+                cards = cards.filter(i=>i!==' ');
                 for(let i=0;i<splice.length;i++){
-                    if(cards[cards.indexOf(splice[i])-k]){
-                        const index = cards.indexOf(splice[i])-k;
-                        decoded[k] +=cards[index];
+                    if(!canSpace){
+                        if(cards[cards.indexOf(splice[i])-k]){
+                            const index = cards.indexOf(splice[i])-k;
+                            decoded[k] +=cards[index];
+                        }else{
+                            const index = (cards.indexOf(splice[i])-k)+cards.length;
+                            decoded[k] += cards[index];
+                        }
                     }else{
-                        const index = (cards.indexOf(splice[i])-k)+cards.length;
-                        decoded[k] += cards[index];
+                        if(splice[i]!==' '){
+                            if(cards[cards.indexOf(splice[i])-k]){
+                                const index = cards.indexOf(splice[i])-k;
+                                decoded[k] +=cards[index];
+                            }else{
+                                const index = (cards.indexOf(splice[i])-k)+cards.length;
+                                decoded[k] += cards[index];
+                            }
+                        }else decoded[k]+=' ';
                     }
+                    
                 }
                 lastStr = decoded[k];
                 k++;
             }
             decoded = Object.fromEntries(
-                Object.entries(decoded).filter(([key, value]) => !value.match('undefined'))
+                Object.entries(decoded).filter(([key, value]) => !value.match('undefined')&&!value.match(str))
             );
             return decoded;
         }else{
-            const cards = Cryptography.CaesarCipher.chars.split(''),
+            let cards = Cryptography.CaesarCipher.chars.split(''),
             splice = str.split('').map((i)=>{
+                if(!cards.includes(' ')) i.replaceAll(' ','');
                 if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.options.UPPERCASE_LETTERS))
-                    return i.replaceAll(' ','');
+                    return i;
                 else if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)) 
-                    return i.replaceAll(' ','').toLowerCase();
-                else return i.replaceAll(' ','').toUpperCase();
-            });
+                    return i.toLowerCase();
+                else return i.toUpperCase();
+            }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
             let decoded='';
+            const canSpace = cards.includes(' ') ? true : false;
+            cards = cards.filter(i=>i!==' ');
             for(let i=0;i<splice.length;i++){
-                if(cards[cards.indexOf(splice[i])-key]){
-                    const index = cards.indexOf(splice[i])-key;
-                    decoded+=cards[index];
+                if(!canSpace){
+                    if(cards[cards.indexOf(splice[i])-key]){
+                        const index = cards.indexOf(splice[i])-key;
+                        decoded+=cards[index];
+                    }else{
+                        const index = (cards.indexOf(splice[i])-key)+cards.length;
+                        decoded+=cards[index];
+                    }
                 }else{
-                    const index = (cards.indexOf(splice[i])-key)+cards.length;
-                    decoded+=cards[index];
+                    if(splice[i]!==' '){
+                        if(cards[cards.indexOf(splice[i])-key]){
+                            const index = cards.indexOf(splice[i])-key;
+                            decoded+=cards[index];
+                        }else{
+                            const index = (cards.indexOf(splice[i])-key)+cards.length;
+                            decoded+=cards[index];
+                        }
+                    }else decoded+=' ';
                 }
             }
         return decoded;
