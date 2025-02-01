@@ -1,8 +1,3 @@
-/**
- * Cryptography list
- *
- * @type {{ CaesarCipher: { encode: (str: string, key: number) => string; decode: (str: string, key?: number) => {}|string; }; }}
- */
 var Cryptography = {
 flags: Object.freeze({
     UPPERCASE_LETTERS: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -12,6 +7,9 @@ flags: Object.freeze({
     SPECIAL_CHARS: '!@#$%^&*()_+-=[]{}|;:\'",.<>?/~`'
 })
 }
+/**
+ * Uses the Caesar Cipher algorithm
+ */
 Cryptography.CaesarCipher = {
     chars: Cryptography.flags.UPPERCASE_LETTERS,
     /**
@@ -155,6 +153,9 @@ Cryptography.CaesarCipher = {
         }
     }
 };
+/**
+ * Uses the Vigenere Cipher algorithm
+ */
 Cryptography.VigenereCipher = {
     chars: Cryptography.flags.UPPERCASE_LETTERS,
     /**
