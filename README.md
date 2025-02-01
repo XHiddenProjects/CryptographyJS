@@ -164,5 +164,5 @@ These are some options that you can use for parameters. **Note:** This only work
 | LOWERCASE_LETTERS | 'abcdefghijklmnopqrstuvwxyz' | _Cryptography.options.LOWERCASE_LETTERS_ |
 | NUMBERS | '0123456789' | _Cryptography.options.NUMBERS_ |
 | SPACE | ' ' | _Cryptography.options.SPACE_ |
-| SPECIAL_CHARS | '!@#$%^&*()_+-=[]{}|;:\'",.<>?/~' | _Cryptography.options.SPECIAL_CHARS_ |
+| SPECIAL_CHARS | '!@#$%^&*()_+-=[]{}|;:\\'",.<>?/~' | _Cryptography.options.SPECIAL_CHARS_ |
 
