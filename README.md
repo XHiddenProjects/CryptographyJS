@@ -8,6 +8,7 @@ A simple JS library for Cryptography
     * [Encode](#encode)
     * [Decode](#decode)
     * [Configuration](#configuration)
+  * [Options](#options)
 
 ## Initiate
 To load up the script:
@@ -154,3 +155,13 @@ console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.U
 }
 */
 ```
+
+### Options
+These are some options that you can use for parameters
+| Constant | Value | Path |
+| -------- | ----- | ---- |
+| UPPERCASE_LETTERS | 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' | _Cryptography.options.UPPERCASE_LETTERS_ |
+| LOWERCASE_LETTERS | 'abcdefghijklmnopqrstuvwxyz' | _Cryptography.options.LOWERCASE_LETTERS_ |
+| NUMBERS | '0123456789' | _Cryptography.options.NUMBERS_ |
+| SPACE | ' ' | _Cryptography.options.SPACE_ |
+
