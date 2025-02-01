@@ -57,7 +57,7 @@ Cryptography.CaesarCipher = {
     decode: (str,key=null)=>{
         if(!key){
             let decoded={};
-            let lastStr='',k=0;
+            let lastStr='',k=1;
             while(!lastStr.match('undefined')){
                 decoded[k] = '';
                 const cards = Cryptography.CaesarCipher.chars.split(''),
