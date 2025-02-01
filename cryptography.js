@@ -8,7 +8,8 @@ options: Object.freeze({
     UPPERCASE_LETTERS: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     LOWERCASE_LETTERS: 'abcdefghijklmnopqrstuvwxyz',
     NUMBERS: '0123456789',
-    SPACE: ' '
+    SPACE: ' ',
+    SPECIAL_CHARS: '!@#$%^&*()_+-=[]{}|;:\'",.<>?/~`'
 })
 }
 Cryptography.CaesarCipher = {
