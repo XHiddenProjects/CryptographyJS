@@ -5,12 +5,12 @@ A simple JS library for Cryptography
 * [Initiate](#Initiate)
 * [Cryptographies](#Cryptographies)
   * [Caesar Cipher](#Caesar-Cipher)
-    * [Encode](#caesar-cipher-(encode))
-    * [Decode](#caesar-cipher-(decode))
+    * [Encode](#caesar-cipher-encode)
+    * [Decode](#caesar-cipher-decode)
     * [Configuration](#caesar-cipher-configuration)
   * [Vigenère Cipher](#Vigenère-Cipher)
-    * [Encode](#Vigenère-Cipher-(encode))
-    * [Decode](#Vigenère-Cipher-(decode))
+    * [Encode](#Vigenère-Cipher-encode)
+    * [Decode](#Vigenère-Cipher-decode)
     * [Configuration](#Vigenère-Cipher-configuration)
   * [Flags](#flags)
 ***
@@ -177,7 +177,7 @@ console.log(Cryptography.VigenereCipher.decode('RMNVAABFHS', 'KickMeNowP')); //H
 ```
 
 #### Vigenère Cipher (Configuration)
-**Refer back to [Ceasar Cipher - Configuration](#caesar-cipher-(configuration))**
+**Refer back to [Ceasar Cipher - Configuration](#caesar-cipher-configuration)**
 One thing added is:
 
 **repeatMode** - Automatically fixes the key to be added/removed characters based on string length.
