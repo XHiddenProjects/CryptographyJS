@@ -4,7 +4,7 @@
  * @type {{ CaesarCipher: { encode: (str: string, key: number) => string; decode: (str: string, key?: number) => {}|string; }; }}
  */
 var Cryptography = {
-options: Object.freeze({
+flags: Object.freeze({
     UPPERCASE_LETTERS: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     LOWERCASE_LETTERS: 'abcdefghijklmnopqrstuvwxyz',
     NUMBERS: '0123456789',
@@ -13,13 +13,13 @@ options: Object.freeze({
 })
 }
 Cryptography.CaesarCipher = {
-    chars: Cryptography.options.UPPERCASE_LETTERS,
+    chars: Cryptography.flags.UPPERCASE_LETTERS,
     /**
      * Update Caesar Ciphers
      * @param {{chars: string}} options Options to change
      * @returns {Cryptography.CaesarCipher}
      */
-    settings: (options={chars:Cryptography.options.UPPERCASE_LETTERS})=>{
+    settings: (options={chars:Cryptography.flags.UPPERCASE_LETTERS})=>{
         if(options.chars) Cryptography.CaesarCipher.chars = options.chars;
         return Cryptography.CaesarCipher;
     },
@@ -33,9 +33,9 @@ Cryptography.CaesarCipher = {
         if(!key) throw new TypeError('Key must have a value to encode');
         let cards = Cryptography.CaesarCipher.chars.split(''),
         splice = str.split('').map((i)=>{
-            if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.options.UPPERCASE_LETTERS))
+            if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                 return i;
-            else if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)) 
+            else if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
                 return i.toLowerCase();
             else return i.toUpperCase();
         }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
@@ -80,9 +80,9 @@ Cryptography.CaesarCipher = {
                 decoded[k] = '';
                 let cards = Cryptography.CaesarCipher.chars.split(''),
                 splice = str.split('').map((i)=>{
-                    if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.options.UPPERCASE_LETTERS))
+                    if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                         return i;
-                    else if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)) 
+                    else if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
                         return i.toLowerCase();
                     else return i.toUpperCase();
                 }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
@@ -121,9 +121,9 @@ Cryptography.CaesarCipher = {
             let cards = Cryptography.CaesarCipher.chars.split(''),
             splice = str.split('').map((i)=>{
                 if(!cards.includes(' ')) i.replaceAll(' ','');
-                if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.options.UPPERCASE_LETTERS))
+                if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                     return i;
-                else if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)) 
+                else if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
                     return i.toLowerCase();
                 else return i.toUpperCase();
             }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
