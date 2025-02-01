@@ -177,7 +177,7 @@ console.log(Cryptography.VigenereCipher.decode('RMNVAABFHS', 'KickMeNowP')); //H
 ```
 
 #### Vigenère Cipher (Configuration)
-Refer back to [Ceasar Cipher - Configuration](#caesar-cipher-(configuration)) 
+**Refer back to [Ceasar Cipher - Configuration](#caesar-cipher-(configuration))**
 
 
 ### Flags
