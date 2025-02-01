@@ -163,8 +163,8 @@ Cryptography.VigenereCipher = {
      * @returns {Cryptography.CaesarCipher}
      */
     settings: (options={chars:Cryptography.flags.UPPERCASE_LETTERS})=>{
-        if(options.chars) Cryptography.CaesarCipher.chars = options.chars;
-        return Cryptography.CaesarCipher;
+        if(options.chars) Cryptography.VigenereCipher.chars = options.chars;
+        return Cryptography.VigenereCipher;
     },
     /**
      * Encode string using Caesar Cipher
@@ -174,21 +174,22 @@ Cryptography.VigenereCipher = {
      */
     encode: (str,key)=>{
         if(!key) throw new TypeError('Key must have a value to encode');
-        let cards = Cryptography.CaesarCipher.chars.split(''),
+        let cards = Cryptography.VigenereCipher.chars.split(''),
         splice = str.split('').map((i)=>{
-            if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
+            if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.VigenereCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                 return i;
-            else if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
+            else if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
                 return i.toLowerCase();
             else return i.toUpperCase();
         }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
         key = key.split('').map((i)=>{
-            if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
+            if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.VigenereCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                 return i;
-            else if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
+            else if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
                 return i.toLowerCase();
             else return i.toUpperCase();
-        }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
+        }).filter(k=>k!==' ');
+        
         if(splice.length!=key.length) throw new RangeError(`String(${splice.length}) and key(${key.length}) are not the same length`);
         const canSpace = cards.includes(' ') ? true : false;
         cards = cards.filter(i=>i!==' ');
@@ -224,22 +225,22 @@ Cryptography.VigenereCipher = {
      * @returns 
      */
     decode: (str,key)=>{
-            let cards = Cryptography.CaesarCipher.chars.split(''),
+            let cards = Cryptography.VigenereCipher.chars.split(''),
             splice = str.split('').map((i)=>{
                 if(!cards.includes(' ')) i.replaceAll(' ','');
-                if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
+                if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.VigenereCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                     return i;
-                else if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
+                else if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
                     return i.toLowerCase();
                 else return i.toUpperCase();
             }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
             key = key.split('').map((i)=>{
-                if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
+                if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.VigenereCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                     return i;
-                else if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
+                else if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
                     return i.toLowerCase();
                 else return i.toUpperCase();
-            }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
+            }).filter(k=>k!==' ');
             let decoded='';
             const canSpace = cards.includes(' ') ? true : false;
             cards = cards.filter(i=>i!==' ');
