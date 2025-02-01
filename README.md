@@ -39,8 +39,9 @@ To decode the Caesar Cipher write this code:
 console.log(Cryptography.CaesarCipher.decode('ALZA',7)); //TEST
 ```
 **OR**
+Leave the key out to _brute force_ through
 ```js
-console.log(Cryptography.CaesarCipher.decode('QYYQVO')); // {10: "GOOGLE"}
+console.log(Cryptography.CaesarCipher.decode('QYYQVO'));
 /*
 {
     "1": "PXXPUN",
@@ -52,7 +53,7 @@ console.log(Cryptography.CaesarCipher.decode('QYYQVO')); // {10: "GOOGLE"}
     "7": "JRRJOH",
     "8": "IQQING",
     "9": "HPPHMF",
-    "10": "GOOGLE",
+    "10": "GOOGLE", // Correct brute force
     "11": "FNNFKD",
     "12": "EMMEJC",
     "13": "DLLDIB",
