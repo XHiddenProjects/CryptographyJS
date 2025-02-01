@@ -28,6 +28,7 @@ Cryptography.CaesarCipher = {
      * @returns {String} Encoded string
      */
     encode: (str,key)=>{
+        if(!key) throw new TypeError('Key must have a value to encode');
         const cards = Cryptography.CaesarCipher.chars.split(''),
         splice = str.split('').map((i)=>{
             if(Cryptography.CaesarCipher.chars.match(Cryptography.options.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.options.UPPERCASE_LETTERS))
