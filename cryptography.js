@@ -1,4 +1,3 @@
-const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 /**
  * Cryptography list
  *
@@ -7,6 +6,16 @@ const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var Cryptography = {
 
 CaesarCipher: {
+    chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    /**
+     * Update Caesar Ciphers
+     * @param {{chars: string}} options Options to change
+     * @returns {Cryptography.CaesarCipher}
+     */
+    settings: (options={chars:'ABCDEFGHIJKLMNOPQRSTUVWXYZ'})=>{
+        if(options.chars) Cryptography.CaesarCipher.chars = options.chars;
+        return Cryptography.CaesarCipher;
+    },
     /**
      * Encode string using Caesar Cipher
      * @param {String} str String to encode
@@ -14,7 +23,7 @@ CaesarCipher: {
      * @returns {String} Encoded string
      */
     encode: (str,key)=>{
-        const cards = chars.split(''),
+        const cards = Cryptography.CaesarCipher.chars.split(''),
         splice = str.split('').map((i)=>{return i.replaceAll(' ','').toUpperCase();}).filter(k=>k!=='');
         let encoded='';
         for(let i=0;i<splice.length;i++){
@@ -40,7 +49,7 @@ CaesarCipher: {
             let lastStr='',k=0;
             while(!lastStr.match('undefined')){
                 decoded[k] = '';
-                const cards = chars.split(''),
+                const cards = Cryptography.CaesarCipher.chars.split(''),
                 splice = str.split('').map((i)=>{return i.toUpperCase();});
                 for(let i=0;i<splice.length;i++){
                     if(cards[cards.indexOf(splice[i])-k]){
@@ -59,7 +68,7 @@ CaesarCipher: {
             );
             return decoded;
         }else{
-            const cards = chars.split(''),
+            const cards = Cryptography.CaesarCipher.chars.split(''),
             splice = str.split('').map((i)=>{return i.toUpperCase();});
             let decoded='';
             for(let i=0;i<splice.length;i++){
