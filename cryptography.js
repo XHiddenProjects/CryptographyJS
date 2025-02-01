@@ -4,7 +4,8 @@ flags: Object.freeze({
     LOWERCASE_LETTERS: 'abcdefghijklmnopqrstuvwxyz',
     NUMBERS: '0123456789',
     SPACE: ' ',
-    SPECIAL_CHARS: '!@#$%^&*()_+-=[]{}|;:\'",.<>?/~`'
+    SPECIAL_CHARS: '!@#$%^&*()_+-=[]{}|;:\'",.<>?/~`',
+    KEY_MODE_REPEAT: true
 })
 }
 /**
@@ -158,13 +159,15 @@ Cryptography.CaesarCipher = {
  */
 Cryptography.VigenereCipher = {
     chars: Cryptography.flags.UPPERCASE_LETTERS,
+    keyModeRepeat: false,
     /**
      * Update Caesar Ciphers
-     * @param {{chars: string}} options Options to change
+     * @param {{chars: string,repeatMode:boolean}} options Options to change
      * @returns {Cryptography.CaesarCipher}
      */
-    settings: (options={chars:Cryptography.flags.UPPERCASE_LETTERS})=>{
-        if(options.chars) Cryptography.VigenereCipher.chars = options.chars;
+    settings: (options={chars:Cryptography.flags.UPPERCASE_LETTERS,repeatMode:false})=>{
+        Cryptography.VigenereCipher.chars = options.chars??Cryptography.flags.UPPERCASE_LETTERS;
+        Cryptography.VigenereCipher.keyModeRepeat = options.repeatMode??false;
         return Cryptography.VigenereCipher;
     },
     /**
@@ -190,8 +193,17 @@ Cryptography.VigenereCipher = {
                 return i.toLowerCase();
             else return i.toUpperCase();
         }).filter(k=>k!==' ');
-        
-        if(splice.length!=key.length) throw new RangeError(`String(${splice.length}) and key(${key.length}) are not the same length`);
+        if(Cryptography.VigenereCipher.keyModeRepeat){
+            if(splice.length>key.length){
+                const temp = key.length;
+                for(let i=key.length;i<=splice.length;i++){
+                    key.push(key[i-temp]);
+                }
+            }else if(splice.length<key.length)
+                key = key.slice(-key.length,splice.length); 
+        }else{
+            if(splice.length!=key.length) throw new RangeError(`String(${splice.length}) and key(${key.length}) are not the same length`);
+        }
         const canSpace = cards.includes(' ') ? true : false;
         cards = cards.filter(i=>i!==' ');
         let encoded='';
@@ -242,6 +254,17 @@ Cryptography.VigenereCipher = {
                     return i.toLowerCase();
                 else return i.toUpperCase();
             }).filter(k=>k!==' ');
+            if(Cryptography.VigenereCipher.keyModeRepeat){
+                if(splice.length>key.length){
+                    const temp = key.length;
+                    for(let i=key.length;i<=splice.length;i++){
+                        key.push(key[i-temp]);
+                    }
+                }else if(splice.length<key.length)
+                    key = key.slice(-key.length,splice.length); 
+            }else{
+                if(splice.length!=key.length) throw new RangeError(`String(${splice.length}) and key(${key.length}) are not the same length`);
+            }
             let decoded='';
             const canSpace = cards.includes(' ') ? true : false;
             cards = cards.filter(i=>i!==' ');
