@@ -1,3 +1,6 @@
+const UPPERCASE_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+LOWERCASE_LETTERS = 'abcdefghijklmnopqrstuvwxyz',
+NUMBERS = '0123456789';
 /**
  * Cryptography list
  *
@@ -6,14 +9,14 @@
 var Cryptography = {
 
 CaesarCipher: {
-    chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    chars: UPPERCASE_LETTERS,
     /**
      * Update Caesar Ciphers
      * @param {{chars: string}} options Options to change
      * @returns {Cryptography.CaesarCipher}
      */
-    settings: (options={chars:'ABCDEFGHIJKLMNOPQRSTUVWXYZ'})=>{
-        if(options.chars) Cryptography.CaesarCipher.chars = options.chars;
+    settings: (options={chars:UPPERCASE_LETTERS})=>{
+        if(options.chars) Cryptography.CaesarCipher.chars = options.chars.replaceAll(' ','');
         return Cryptography.CaesarCipher;
     },
     /**
@@ -24,7 +27,13 @@ CaesarCipher: {
      */
     encode: (str,key)=>{
         const cards = Cryptography.CaesarCipher.chars.split(''),
-        splice = str.split('').map((i)=>{return i.replaceAll(' ','').toUpperCase();}).filter(k=>k!=='');
+        splice = str.split('').map((i)=>{
+            if(Cryptography.CaesarCipher.chars.match(LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(UPPERCASE_LETTERS))
+                return i.replaceAll(' ','');
+            else if(Cryptography.CaesarCipher.chars.match(LOWERCASE_LETTERS)) 
+                return i.replaceAll(' ','').toLowerCase();
+            else return i.replaceAll(' ','').toUpperCase();
+        }).filter(k=>k!=='');
         let encoded='';
         for(let i=0;i<splice.length;i++){
             if(cards[cards.indexOf(splice[i])+key]){
@@ -50,7 +59,13 @@ CaesarCipher: {
             while(!lastStr.match('undefined')){
                 decoded[k] = '';
                 const cards = Cryptography.CaesarCipher.chars.split(''),
-                splice = str.split('').map((i)=>{return i.toUpperCase();});
+                splice = str.split('').map((i)=>{
+                    if(Cryptography.CaesarCipher.chars.match(LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(UPPERCASE_LETTERS))
+                        return i.replaceAll(' ','');
+                    else if(Cryptography.CaesarCipher.chars.match(LOWERCASE_LETTERS)) 
+                        return i.replaceAll(' ','').toLowerCase();
+                    else return i.replaceAll(' ','').toUpperCase();
+                });
                 for(let i=0;i<splice.length;i++){
                     if(cards[cards.indexOf(splice[i])-k]){
                         const index = cards.indexOf(splice[i])-k;
@@ -69,7 +84,13 @@ CaesarCipher: {
             return decoded;
         }else{
             const cards = Cryptography.CaesarCipher.chars.split(''),
-            splice = str.split('').map((i)=>{return i.toUpperCase();});
+            splice = str.split('').map((i)=>{
+                if(Cryptography.CaesarCipher.chars.match(LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(UPPERCASE_LETTERS))
+                    return i.replaceAll(' ','');
+                else if(Cryptography.CaesarCipher.chars.match(LOWERCASE_LETTERS)) 
+                    return i.replaceAll(' ','').toLowerCase();
+                else return i.replaceAll(' ','').toUpperCase();
+            });
             let decoded='';
             for(let i=0;i<splice.length;i++){
                 if(cards[cards.indexOf(splice[i])-key]){
