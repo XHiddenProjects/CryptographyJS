@@ -191,12 +191,12 @@ console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.
 ***
 ### Flags
 These are some options that you can use for parameters. **Note:** This only works for `.settings(...)` methods for any acceptable cryptography.
-| Constant | Value | Path |
-| -------- | ----- | ---- |
-| UPPERCASE_LETTERS | 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' | _Cryptography.flags.UPPERCASE_LETTERS_ |
-| LOWERCASE_LETTERS | 'abcdefghijklmnopqrstuvwxyz' | _Cryptography.flags.LOWERCASE_LETTERS_ |
-| NUMBERS | '0123456789' | _Cryptography.flags.NUMBERS_ |
-| SPACE | ' ' | _Cryptography.flags.SPACE_ |
-| SPECIAL_CHARS | '!@#$%^&*()_+-=[]{}\|;:\'",.<>?/~' | _Cryptography.flags.SPECIAL_CHARS_ |
-| KEY_MODE_REPEAT | TRUE | _Cryptography.flags.KEY_MODE_REPEAT__ |
+| Constant | Value | Type | Path |
+| -------- | ----- | ---- | ---- |
+| UPPERCASE_LETTERS | 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' | String | _Cryptography.flags.UPPERCASE_LETTERS_ |
+| LOWERCASE_LETTERS | 'abcdefghijklmnopqrstuvwxyz' | String | _Cryptography.flags.LOWERCASE_LETTERS_ |
+| NUMBERS | '0123456789' | String | _Cryptography.flags.NUMBERS_ |
+| SPACE | ' ' | String | _Cryptography.flags.SPACE_ |
+| SPECIAL_CHARS | '!@#$%^&*()_+-=[]{}\|;:\'",.<>?/~' | String | _Cryptography.flags.SPECIAL_CHARS_ |
+| KEY_MODE_REPEAT | TRUE | Boolean | _Cryptography.flags.KEY_MODE_REPEAT__ |
 
