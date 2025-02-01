@@ -15,7 +15,7 @@ CaesarCipher: {
      */
     encode: (str,key)=>{
         const cards = chars.split(''),
-        splice = str.split('').map((i)=>{return i.toUpperCase();});
+        splice = str.split('').map((i)=>{return i.replaceAll(' ','').toUpperCase();}).filter(k=>k!=='');
         let encoded='';
         for(let i=0;i<splice.length;i++){
             if(cards[cards.indexOf(splice[i])+key]){
