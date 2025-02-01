@@ -183,6 +183,7 @@ One thing added is:
 **repeatMode** - Automatically fixes the key to be added/removed characters based on string length.
 
 ```js
+console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.KEY_MODE_REPEAT}).encode('AttackAtDawn', 'LEMON')); //LXFOPVEFRNHR
 console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.KEY_MODE_REPEAT}).decode('LXFOPVEFRNHR', 'LEMON')); //ATTACKATDAWN
 ```
 
