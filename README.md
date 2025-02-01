@@ -5,9 +5,13 @@ A simple JS library for Cryptography
 * [Initiate](#Initiate)
 * [Cryptographies](#Cryptographies)
   * [Caesar Cipher](#Caesar-Cipher)
-    * [Encode](#encode)
-    * [Decode](#decode)
-    * [Configuration](#configuration)
+    * [Encode](#caesar-cipher-(encode))
+    * [Decode](#caesar-cipher-(decode))
+    * [Configuration](#caesar-cipher-configuration)
+  * [Vigenère Cipher](#Vigenère-Cipher)
+    * [Encode](#Vigenère-Cipher-(encode))
+    * [Decode](#Vigenère-Cipher-(decode))
+    * [Configuration](#Vigenère-Cipher-configuration)
   * [Flags](#flags)
 
 ## Initiate
@@ -21,21 +25,22 @@ To load up the script:
 
 ## Cryptographies
 Here is the current list of cryptographies
-| Name | Encodable | Decodable | Hashable | Brute Forcable | Description |
+| Name | Encodable | Decodable | Hashable | Forcable | Description |
 | ---- | ------ | ------ | ---- | ----------- | ----------- |
-| CaesarCipher | ✔️ | ✔️ |  ❌   |    ✔️      | Encodes/Decodes string in Caesar Cipher |
+| CaesarCipher  | ✔️  | ✔️ |  ❌   |    ✔️      | Encodes/Decodes string in Caesar Cipher |
+| VigenereCipher| ✔️ | ✔️ | ❌ | ❌ |          Encodes/Decodes string in Vigenere Cipher |
 
 
 ### Caesar Cipher
 Caesar Cipher is a common cipher that shifts letters based on key value
 
-#### Encode
+#### Caesar Cipher (Encode)
 To encode the Caesar Cipher write this code:
 ```js
 Cryptography.CaesarCipher.encode('Test',7); //Returns ALZA
 ```
 
-#### Decode
+#### Caesar Cipher (Decode)
 To decode the Caesar Cipher write this code:
 ```js
 console.log(Cryptography.CaesarCipher.decode('ALZA',7)); //TEST
@@ -92,7 +97,7 @@ console.log(Cryptography.CaesarCipher.decode('QYYQVO'));
 */
 ```
 
-#### Configuration
+#### Caesar Cipher (Configuration)
 To configure what can be loaded in use this code:
 ```js
 console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.UPPERCASE_LETTERS}${Cryptography.options.LOWERCASE_LETTERS}`}).encode('Test',7)); //alzA
@@ -155,6 +160,25 @@ console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.U
 }
 */
 ```
+
+### Vigenère Cipher
+Vigenère Cipher, just like Caesar Cipher, uses string length as a key.
+
+#### Vigenère Cipher (Encode)
+To encode the Vigenère Cipher write this code:
+```js
+console.log(Cryptography.VigenereCipher.encode('Hello World','KickMeNowP')); //RMNVAABFHS
+```
+
+#### Vigenère Cipher (Decode)
+To decode the Vigenère Cipher write this code:
+```js
+console.log(Cryptography.VigenereCipher.decode('RMNVAABFHS', 'KickMeNowP')); //HelloWorld
+```
+
+#### Vigenère Cipher (Configuration)
+Refer back to [Ceasar Cipher - Configuration](#caesar-cipher-(configuration)) 
+
 
 ### Flags
 These are some options that you can use for parameters. **Note:** This only works for `.settings(...)` methods for any acceptable cryptography.
