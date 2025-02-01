@@ -8,9 +8,8 @@ flags: Object.freeze({
     KEY_MODE_REPEAT: true
 })
 }
-/**
- * Uses the Caesar Cipher algorithm
- */
+
+//Uses the Caesar Cipher algorithm
 Cryptography.CaesarCipher = {
     chars: Cryptography.flags.UPPERCASE_LETTERS,
     /**
@@ -113,7 +112,7 @@ Cryptography.CaesarCipher = {
                 k++;
             }
             decoded = Object.fromEntries(
-                Object.entries(decoded).filter(([key, value]) => !value.match('undefined')&&!value.match(str))
+                Object.entries(decoded).filter(([, value]) => !value.match('undefined') && !value.match(str))
             );
             return decoded;
         }else{
@@ -154,9 +153,7 @@ Cryptography.CaesarCipher = {
         }
     }
 };
-/**
- * Uses the Vigenere Cipher algorithm
- */
+// Uses the Vigènere Cipher algorithm
 Cryptography.VigenereCipher = {
     chars: Cryptography.flags.UPPERCASE_LETTERS,
     keyModeRepeat: false,
@@ -291,4 +288,53 @@ Cryptography.VigenereCipher = {
             }
         return decoded;
     }
-}
+};
+// Uses the OneTime-Pad algorithm
+Cryptography.OneTimePad = {
+    chars: Cryptography.flags.UPPERCASE_LETTERS,
+    keyModeRepeat: false,
+    /**
+     * Update One-Time Pad settings
+     * @param {{chars: string, repeatMode: boolean}} options Options to change
+     * @returns {Cryptography.OneTimePad}
+     */
+    settings: (options = { chars: Cryptography.flags.UPPERCASE_LETTERS, repeatMode: false }) => {
+        Cryptography.OneTimePad.chars = options.chars ?? Cryptography.flags.UPPERCASE_LETTERS;
+        Cryptography.OneTimePad.keyModeRepeat = options.repeatMode ?? false;
+        return Cryptography.OneTimePad;
+    },
+    /**
+     * Encrypt string using One-Time Pad
+     * @param {String} str String to encrypt
+     * @param {String} key Key for encryption
+     * @returns {String} Encrypted string
+     */
+    encrypt: (str, key) => {
+        if (Cryptography.OneTimePad.keyModeRepeat) key = key.repeat(Math.ceil(str.length / key.length)).slice(0, str.length);
+        else if (!Cryptography.OneTimePad.keyModeRepeat && str.length !== key.length) throw new RangeError('String and key must be the same length');
+        else;
+        let encrypted = '';
+        for (let i = 0; i < str.length; i++) {
+            const charCode = str.charCodeAt(i) ^ key.charCodeAt(i);
+            encrypted += String.fromCharCode(charCode);
+        }
+        return encrypted;
+    },
+    /**
+     * Decrypt string using One-Time Pad
+     * @param {String} str Encrypted string
+     * @param {String} key Key for decryption
+     * @returns {String} Decrypted string
+     */
+    decrypt: (str, key) => {
+        if (Cryptography.OneTimePad.keyModeRepeat) key = key.repeat(Math.ceil(str.length / key.length)).slice(0, str.length);
+        else if (!Cryptography.OneTimePad.keyModeRepeat && str.length !== key.length) throw new RangeError('String and key must be the same length');
+        else;
+        let decrypted = '';
+        for (let i = 0; i < str.length; i++) {
+            const charCode = str.charCodeAt(i) ^ key.charCodeAt(i);
+            decrypted += String.fromCharCode(charCode);
+        }
+        return decrypted;
+    }
+};
