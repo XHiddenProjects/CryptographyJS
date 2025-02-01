@@ -38,7 +38,9 @@ To decode the Caesar Cipher write this code:
 ```js
 console.log(Cryptography.CaesarCipher.decode('ALZA',7)); //TEST
 ```
+
 **OR**
+
 Leave the key out to _brute force_ through
 ```js
 console.log(Cryptography.CaesarCipher.decode('QYYQVO'));
