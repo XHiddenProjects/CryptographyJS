@@ -336,5 +336,16 @@ Cryptography.OneTimePad = {
             decrypted += String.fromCharCode(charCode);
         }
         return decrypted;
+    },
+    /**
+     * Converts to binary
+     * @param {String} encrypted Convert encrypted string to binary
+     * @returns {String} Binary format
+     */
+    toBin(encrypted){
+        return encrypted.split('').map(char => {
+            let binary = char.charCodeAt(0).toString(2);
+            return '00000000'.slice(binary.length) + binary;
+        }).join(' ');
     }
 };
