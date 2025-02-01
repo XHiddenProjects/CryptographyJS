@@ -157,7 +157,7 @@ console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.U
 ```
 
 ### Options
-These are some options that you can use for parameters
+These are some options that you can use for parameters. **Note:** This only works for `.settings(...)` methods for any acceptable cryptography.
 | Constant | Value | Path |
 | -------- | ----- | ---- |
 | UPPERCASE_LETTERS | 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' | _Cryptography.options.UPPERCASE_LETTERS_ |
