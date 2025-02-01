@@ -15,6 +15,7 @@ A simple JS library for Cryptography
   * [One-Time Pad](#one-time-pad)
     * [Encrypt](#one-time-pad-encrypt)
     * [Decrypt](#one-time-pad-decrypt)
+    * [toBinary](#one-time-pad-tobinary)
     * [Configuration](#one-time-pad-decrypt) 
   * [Flags](#flags)
 ***
@@ -198,14 +199,21 @@ console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.
 #### One-Time Pad (Encrypt)
 To encode the Vigenère Cipher write this code:
 ```js
-console.log(Cryptography.VigenereCipher.encrypt('Test', 'LEMON')); // >;
+console.log(Cryptography.OneTimePad.encrypt('Test', 'LEMON')); // >;
 ```
 
 #### One-time Pad (Decrypt)
 To decode the Vigenère Cipher write this code:
 ```js
-console.log(Cryptography.VigenereCipher.decrypt(' >;', 'LEMON')); // Test
+console.log(Cryptography.OneTimePad.decrypt(' >;', 'LEMON')); // Test
 ```
+#### One-time Pad (toBinary)
+To convert encrypted outcome to binary
+```js
+const f = Cryptography.OneTimePad.settings({repeatMode: true});
+console.log(f.toBin(f.encrypt('CYBER ETHICS', 'XMCKL'))); //00011011 00010100 00000001 00001110 00011110 01111000 00001000 00010111 00000011 00000101 00011011 00011110
+```
+
 #### One-time Pad (Configuration)
 **Refer back to [Vigenère Cipher (Configuration)](#vigenère-cipher-configuration)**
 
