@@ -12,6 +12,10 @@ A simple JS library for Cryptography
     * [Encode](#Vigenère-Cipher-encode)
     * [Decode](#Vigenère-Cipher-decode)
     * [Configuration](#Vigenère-Cipher-configuration)
+  * [One-Time Pad](#one-time-pad)
+    * [Encrypt](#one-time-pad-encrypt)
+    * [Decrypt](#one-time-pad-decrypt)
+    * [Configuration](#one-time-pad-decrypt) 
   * [Flags](#flags)
 ***
 ## Initiate
@@ -29,6 +33,7 @@ Here is the current list of cryptographies
 | ---- | ------ | ------ | ---- | ----------- | ----------- |
 | CaesarCipher  | ✔️  | ✔️ |  ❌   |    ✔️      | Encodes/Decodes string in Caesar Cipher |
 | VigenereCipher| ✔️ | ✔️ | ❌ | ❌ |          Encodes/Decodes string in Vigenere Cipher |
+| OneTimePad | ✔️ | ✔️ | ❌ | ❌ | Encryps/Decrypts string using One-Time pad |
 
 ***
 ### Caesar Cipher
@@ -177,7 +182,7 @@ console.log(Cryptography.VigenereCipher.decode('RMNVAABFHS', 'KickMeNowP')); //H
 ```
 
 #### Vigenère Cipher (Configuration)
-**Refer back to [Ceasar Cipher - Configuration](#caesar-cipher-configuration)**
+**Refer back to [Ceasar Cipher (Configuration)](#caesar-cipher-configuration)**
 One thing added is:
 
 **repeatMode** - Automatically fixes the key to be added/removed characters based on string length.
@@ -187,6 +192,22 @@ console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.
 console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.KEY_MODE_REPEAT}).decode('LXFOPVEFRNHR', 'LEMON')); //ATTACKATDAWN
 ```
 
+***
+
+### One-Time Pad
+#### One-Time Pad (Encrypt)
+To encode the Vigenère Cipher write this code:
+```js
+console.log(Cryptography.VigenereCipher.encrypt('Test', 'LEMON')); // >;
+```
+
+#### One-time Pad (Decrypt)
+To decode the Vigenère Cipher write this code:
+```js
+console.log(Cryptography.VigenereCipher.decrypt(' >;', 'LEMON')); // Test
+```
+#### One-time Pad (Configuration)
+**Refer back to [Vigenère Cipher (Configuration)](#vigenère-cipher-configuration)**
 
 ***
 ### Flags
