@@ -207,12 +207,6 @@ To decode the Vigenère Cipher write this code:
 ```js
 console.log(Cryptography.OneTimePad.decrypt(' >;', 'LEMON')); // Test
 ```
-#### One-time Pad (toBinary)
-To convert encrypted outcome to binary
-```js
-const f = Cryptography.OneTimePad.settings({repeatMode: true});
-console.log(f.toBin(f.encrypt('CYBER ETHICS', 'XMCKL'))); //00011011 00010100 00000001 00001110 00011110 01111000 00001000 00010111 00000011 00000101 00011011 00011110
-```
 
 #### One-time Pad (Configuration)
 **Refer back to [Vigenère Cipher (Configuration)](#vigenère-cipher-configuration)**
