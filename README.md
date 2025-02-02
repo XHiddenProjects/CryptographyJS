@@ -15,8 +15,10 @@ A simple JS library for Cryptography
   * [One-Time Pad](#one-time-pad)
     * [Encrypt](#one-time-pad-encrypt)
     * [Decrypt](#one-time-pad-decrypt)
-    * [toBinary](#one-time-pad-tobinary)
-    * [Configuration](#one-time-pad-decrypt) 
+    * [Configuration](#one-time-pad-decrypt)
+  * [Base64](#base64)
+    * [Encode](#base64-encode)
+    * [Decode](#base64-decode) 
   * [Flags](#flags)
 ***
 ## Initiate
@@ -35,6 +37,7 @@ Here is the current list of cryptographies
 | CaesarCipher  | ✔️  | ✔️ |  ❌   |    ✔️      | Encodes/Decodes string in Caesar Cipher |
 | VigenereCipher| ✔️ | ✔️ | ❌ | ❌ |          Encodes/Decodes string in Vigenere Cipher |
 | OneTimePad | ✔️ | ✔️ | ❌ | ❌ | Encryps/Decrypts string using One-Time pad |
+| Base64 | ✔️ | ✔️ | ❌ | ❌ | Encodes/Decodes string in base64 |
 
 ***
 ### Caesar Cipher
@@ -196,6 +199,8 @@ console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.
 ***
 
 ### One-Time Pad
+Encryption technique utilizing a one-time pre-shared key at least as long as the encrypted message
+
 #### One-Time Pad (Encrypt)
 To encode the Vigenère Cipher write this code:
 ```js
@@ -212,6 +217,24 @@ console.log(Cryptography.OneTimePad.decrypt(' >;', 'LEMON')); // Test
 **Refer back to [Vigenère Cipher (Configuration)](#vigenère-cipher-configuration)**
 
 ***
+
+### Base64
+Base64 is an encoded text by a group of binary-to-text using 64 symbols
+
+#### Base64 (Encode)
+Encode string using base64
+```js
+console.log(Cryptography.Base64.encode('Test')); //VGVzdA==
+```
+
+#### Base64 (Decode)
+Decode Base64 string
+```js
+console.log(Cryptography.Base64.decode('VGVzdA=='));
+```
+
+***
+
 ### Flags
 These are some options that you can use for parameters. **Note:** This only works for `.settings(...)` methods for any acceptable cryptography.
 | Constant | Value | Type | Path |
