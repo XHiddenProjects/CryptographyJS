@@ -22,12 +22,12 @@ Cryptography.CaesarCipher = {
         return Cryptography.CaesarCipher;
     },
     /**
-     * Encode string using Caesar Cipher
+     * Encrypts string using Caesar Cipher
      * @param {String} str String to encode
      * @param {Number} key Number to shift
      * @returns {String} Encoded string
      */
-    encode: (str,key)=>{
+    encrypt: (str,key)=>{
         if(!key) throw new TypeError('Key must have a value to encode');
         let cards = Cryptography.CaesarCipher.chars.split(''),
         splice = str.split('').map((i)=>{
@@ -65,12 +65,12 @@ Cryptography.CaesarCipher = {
         return encoded;
     },
     /**
-     * Decode string using Caesar Cipher
+     * Decrypts string using Caesar Cipher
      * @param {String} str Encoded string
      * @param {Number|null} [key=null] Number of shifts. Leave null to brute force 
      * @returns 
      */
-    decode: (str,key=null)=>{
+    decrypt: (str,key=null)=>{
         if(!key){
             let decoded={};
             let lastStr='',k=1;
@@ -168,12 +168,12 @@ Cryptography.VigenereCipher = {
         return Cryptography.VigenereCipher;
     },
     /**
-     * Encode string using Caesar Cipher
+     * Encrypts string using Caesar Cipher
      * @param {String} str String to encode
      * @param {String} key Number to shift
      * @returns {String} Encoded string
      */
-    encode: (str,key)=>{
+    encrypt: (str,key)=>{
         if(!key) throw new TypeError('Key must have a value to encode');
         let cards = Cryptography.VigenereCipher.chars.split(''),
         splice = str.split('').map((i)=>{
@@ -229,12 +229,12 @@ Cryptography.VigenereCipher = {
         return encoded;
     },
     /**
-     * Decode string using Caesar Cipher
+     * Decrypts string using Caesar Cipher
      * @param {String} str Encoded string
      * @param {String} key Key to shift
      * @returns 
      */
-    decode: (str,key)=>{
+    decrypt: (str,key)=>{
             let cards = Cryptography.VigenereCipher.chars.split(''),
             splice = str.split('').map((i)=>{
                 if(!cards.includes(' ')) i.replaceAll(' ','');
