@@ -51,7 +51,7 @@ Here is the current list of cryptographies
 - **Description**: A small description of what cryptography can do.
 
 | Name | Encryptable/Encodable | Decryptable/Decodable | Forcable | Description |
-| ---- | ------ | ------ | ---- | ----------- | ----------- |
+| ---- | --------------------- | --------------------- | -------- | ----------- |
 | CaesarCipher  | ✔️  | ✔️   |    ✔️      | Encodes/Decodes string in Caesar Cipher |
 | VigenereCipher| ✔️ | ✔️ | ❌  |          Encodes/Decodes string in Vigenere Cipher |
 | OneTimePad | ✔️ | ✔️ | ❌  | Encryps/Decrypts string using One-Time pad |
