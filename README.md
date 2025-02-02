@@ -34,7 +34,7 @@ A simple JS library for Cryptography
 To load up the script:
 ```html
 <script type="module">
- import {Cryptography} from './cryptography.js';
+ import {Cryptography} from './cryptography.min.js';
  //Cryptography goes here
 </script>
 ```
