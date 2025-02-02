@@ -204,13 +204,13 @@ Encryption technique utilizing a one-time pre-shared key at least as long as the
 #### One-Time Pad (Encrypt)
 To encode the Vigenère Cipher write this code:
 ```js
-console.log(Cryptography.OneTimePad.encrypt('Test', 'LEMON')); // >;
+console.log(Cryptography.OneTimePad.settings({repeatMode:true}).encrypt('TEST', 'Lemon')); //EIEH
 ```
 
 #### One-time Pad (Decrypt)
 To decode the Vigenère Cipher write this code:
 ```js
-console.log(Cryptography.OneTimePad.decrypt(' >;', 'LEMON')); // Test
+console.log(Cryptography.OneTimePad.settings({repeatMode:true}).decrypt('EIEH', 'Lemon')); //TEST
 ```
 
 #### One-time Pad (Configuration)
