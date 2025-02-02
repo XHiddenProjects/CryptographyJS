@@ -34,8 +34,8 @@ Cryptography.CaesarCipher = {
             if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                 return i;
             else if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
-                return i.toLowerCase();
-            else return i.toUpperCase();
+                return i.toLocaleLowerCase();
+            else return i.toLocaleUpperCase();
         }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
         const canSpace = cards.includes(' ') ? true : false;
         cards = cards.filter(i=>i!==' ');
@@ -81,8 +81,8 @@ Cryptography.CaesarCipher = {
                     if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                         return i;
                     else if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
-                        return i.toLowerCase();
-                    else return i.toUpperCase();
+                        return i.toLocaleLowerCase();
+                    else return i.toLocaleUpperCase();
                 }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
                 const canSpace = cards.includes(' ') ? true : false;
                 cards = cards.filter(i=>i!==' ');
@@ -122,8 +122,8 @@ Cryptography.CaesarCipher = {
                 if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.CaesarCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                     return i;
                 else if(Cryptography.CaesarCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
-                    return i.toLowerCase();
-                else return i.toUpperCase();
+                    return i.toLocaleLowerCase();
+                else return i.toLocaleUpperCase();
             }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
             let decoded='';
             const canSpace = cards.includes(' ') ? true : false;
@@ -180,15 +180,15 @@ Cryptography.VigenereCipher = {
             if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.VigenereCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                 return i;
             else if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
-                return i.toLowerCase();
-            else return i.toUpperCase();
+                return i.toLocaleLowerCase();
+            else return i.toLocaleUpperCase();
         }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
         key = key.split('').map((i)=>{
             if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.VigenereCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                 return i;
             else if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
-                return i.toLowerCase();
-            else return i.toUpperCase();
+                return i.toLocaleLowerCase();
+            else return i.toLocaleUpperCase();
         }).filter(k=>k!==' ');
         if(Cryptography.VigenereCipher.keyModeRepeat){
             if(splice.length>key.length){
@@ -241,15 +241,15 @@ Cryptography.VigenereCipher = {
                 if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.VigenereCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                     return i;
                 else if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
-                    return i.toLowerCase();
-                else return i.toUpperCase();
+                    return i.toLocaleLowerCase();
+                else return i.toLocaleUpperCase();
             }).filter(k=>{return !cards.includes(' ') ? k!==' ' : k;});
             key = key.split('').map((i)=>{
                 if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.VigenereCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS))
                     return i;
                 else if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) 
-                    return i.toLowerCase();
-                else return i.toUpperCase();
+                    return i.toLocaleLowerCase();
+                else return i.toLocaleUpperCase();
             }).filter(k=>k!==' ');
             if(Cryptography.VigenereCipher.keyModeRepeat){
                 if(splice.length>key.length){
@@ -315,6 +315,17 @@ Cryptography.OneTimePad = {
         else if (!Cryptography.OneTimePad.keyModeRepeat && str.length !== key.length) throw new RangeError('String and key must be the same length');
         else;
         let encrypted = '';
+        if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.VigenereCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS)){
+            str = str;
+            key = key;
+        }else if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) {
+            str = str.toLocaleLowerCase();
+            key = key.toLocaleLowerCase();
+        }else {
+            str = str.toLocaleUpperCase();
+            key = key.toLocaleUpperCase();
+        }
+
         for (let i = 0; i < str.length; i++) {
             let charIndex = Cryptography.OneTimePad.chars.indexOf(str[i]);
             let keyIndex = Cryptography.OneTimePad.chars.indexOf(key[i]);
@@ -334,6 +345,16 @@ Cryptography.OneTimePad = {
         if (Cryptography.OneTimePad.keyModeRepeat) key = key.repeat(Math.ceil(str.length / key.length)).slice(0, str.length);
         else if (!Cryptography.OneTimePad.keyModeRepeat && str.length !== key.length) throw new RangeError('String and key must be the same length');
         else;
+        if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)&&Cryptography.VigenereCipher.chars.match(Cryptography.flags.UPPERCASE_LETTERS)){
+            str = str;
+            key = key;
+        }else if(Cryptography.VigenereCipher.chars.match(Cryptography.flags.LOWERCASE_LETTERS)) {
+            str = str.toLocaleLowerCase();
+            key = key.toLocaleLowerCase();
+        }else {
+            str = str.toLocaleUpperCase();
+            key = key.toLocaleUpperCase();
+        }
         let decrypted = '';
         for (let i = 0; i < str.length; i++) {
             let charIndex = Cryptography.OneTimePad.chars.indexOf(str[i]);
@@ -346,7 +367,7 @@ Cryptography.OneTimePad = {
     }
 };
 //Uses base64
-Cryptography.base64 = {
+Cryptography.Base64 = {
     /**
      * Encode string to Base64
      * @param {String} str String to encode
