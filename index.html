@@ -5,11 +5,10 @@
     </head>
     <body>
 
-        <script src="./cryptography.js"></script>
-        <script>
-            console.log(Cryptography.CaesarCipher.encode('test',7));
-            console.log(Cryptography.CaesarCipher.decode('ALZA',7));
-            console.log(Cryptography.CaesarCipher.decode('ALZA'));
+
+        <script type="module">
+            import {Cryptography} from './cryptography.js';
+            console.log(Cryptography.hash.md4('A'));
         </script>
     </body>
 </html>
