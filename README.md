@@ -46,7 +46,6 @@ Here is the current list of cryptographies
 - **Name**: Name of the cryptography
 - **Encryptable/Encodable**: If the cryptography can be encrypted/encoded
 - **Decryptable/Decodable**: If the cryptography can be decrypted/decoded
-- **Hashable**: If the cryptography can be hashed
 - **Forcable**: If the cryptography can be _brute-forced_
 - **Description**: A small description of what cryptography can do.
 
