@@ -5,12 +5,12 @@ A simple JS library for Cryptography
 * [Initiate](#Initiate)
 * [Cryptographies](#Cryptographies)
   * [Caesar Cipher](#Caesar-Cipher)
-    * [Encode](#caesar-cipher-encode)
-    * [Decode](#caesar-cipher-decode)
+    * [Encrypt](#caesar-cipher-encrypt)
+    * [Decrypt](#caesar-cipher-decrypt)
     * [Configuration](#caesar-cipher-configuration)
   * [Vigenère Cipher](#Vigenère-Cipher)
-    * [Encode](#Vigenère-Cipher-encode)
-    * [Decode](#Vigenère-Cipher-decode)
+    * [Encrypt](#Vigenère-Cipher-encrypt)
+    * [Decrypt](#Vigenère-Cipher-decrypt)
     * [Configuration](#Vigenère-Cipher-configuration)
   * [One-Time Pad](#one-time-pad)
     * [Encrypt](#one-time-pad-encrypt)
@@ -35,7 +35,7 @@ To load up the script:
 ***
 ## Cryptographies
 Here is the current list of cryptographies
-| Name | Encodable | Decodable | Hashable | Forcable | Description |
+| Name | Encryptable/Encodable | Decryptable/Decodable | Hashable | Forcable | Description |
 | ---- | ------ | ------ | ---- | ----------- | ----------- |
 | CaesarCipher  | ✔️  | ✔️ |  ❌   |    ✔️      | Encodes/Decodes string in Caesar Cipher |
 | VigenereCipher| ✔️ | ✔️ | ❌ | ❌ |          Encodes/Decodes string in Vigenere Cipher |
@@ -47,23 +47,23 @@ Here is the current list of cryptographies
 ### Caesar Cipher
 Caesar Cipher is a common cipher that shifts letters based on key value
 
-#### Caesar Cipher (Encode)
+#### Caesar Cipher (Encrypt)
 To encode the Caesar Cipher write this code:
 ```js
-Cryptography.CaesarCipher.encode('Test',7); //Returns ALZA
+Cryptography.CaesarCipher.encrypt('Test',7); //Returns ALZA
 ```
 
-#### Caesar Cipher (Decode)
+#### Caesar Cipher (Decrypt)
 To decode the Caesar Cipher write this code:
 ```js
-console.log(Cryptography.CaesarCipher.decode('ALZA',7)); //TEST
+console.log(Cryptography.CaesarCipher.decrypt('ALZA',7)); //TEST
 ```
 
 **OR**
 
 Leave the key out to _brute force_ through
 ```js
-console.log(Cryptography.CaesarCipher.decode('QYYQVO'));
+console.log(Cryptography.CaesarCipher.decrypt('QYYQVO'));
 /*
 {
     "1": "PXXPUN",
@@ -113,9 +113,9 @@ console.log(Cryptography.CaesarCipher.decode('QYYQVO'));
 #### Caesar Cipher (Configuration)
 To configure what can be loaded in use this code:
 ```js
-console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.UPPERCASE_LETTERS}${Cryptography.options.LOWERCASE_LETTERS}`}).encode('Test',7)); //alzA
-console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.UPPERCASE_LETTERS}${Cryptography.options.LOWERCASE_LETTERS}`}).decode('alzA',7)); //Test
-console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.UPPERCASE_LETTERS}${Cryptography.options.LOWERCASE_LETTERS}`}).decode('alzA'));
+console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.UPPERCASE_LETTERS}${Cryptography.options.LOWERCASE_LETTERS}`}).encrypt('Test',7)); //alzA
+console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.UPPERCASE_LETTERS}${Cryptography.options.LOWERCASE_LETTERS}`}).decrypt('alzA',7)); //Test
+console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.UPPERCASE_LETTERS}${Cryptography.options.LOWERCASE_LETTERS}`}).decrypt('alzA'));
 /*
 {
     "1": "Zkyz",
@@ -177,16 +177,16 @@ console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.U
 ### Vigenère Cipher
 Vigenère Cipher, just like Caesar Cipher, uses string length as a key.
 
-#### Vigenère Cipher (Encode)
+#### Vigenère Cipher (Encrypt)
 To encode the Vigenère Cipher write this code:
 ```js
-console.log(Cryptography.VigenereCipher.encode('Hello World','KickMeNowP')); //RMNVAABFHS
+console.log(Cryptography.VigenereCipher.encrypt('Hello World','KickMeNowP')); //RMNVAABFHS
 ```
 
-#### Vigenère Cipher (Decode)
+#### Vigenère Cipher (Decrypt)
 To decode the Vigenère Cipher write this code:
 ```js
-console.log(Cryptography.VigenereCipher.decode('RMNVAABFHS', 'KickMeNowP')); //HelloWorld
+console.log(Cryptography.VigenereCipher.decrypt('RMNVAABFHS', 'KickMeNowP')); //HelloWorld
 ```
 
 #### Vigenère Cipher (Configuration)
@@ -196,8 +196,8 @@ One thing added is:
 **repeatMode** - Automatically fixes the key to be added/removed characters based on string length.
 
 ```js
-console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.KEY_MODE_REPEAT}).encode('AttackAtDawn', 'LEMON')); //LXFOPVEFRNHR
-console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.KEY_MODE_REPEAT}).decode('LXFOPVEFRNHR', 'LEMON')); //ATTACKATDAWN
+console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.KEY_MODE_REPEAT}).encrypt('AttackAtDawn', 'LEMON')); //LXFOPVEFRNHR
+console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.KEY_MODE_REPEAT}).decrypt('LXFOPVEFRNHR', 'LEMON')); //ATTACKATDAWN
 ```
 
 ***
