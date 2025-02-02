@@ -3,7 +3,8 @@ A simple JS library for Cryptography
 
 ## Table of Contents
 * [Initiate](#Initiate)
-* [Cryptographies](#Cryptographies)
+* [Ciphers](#Cryptographies)
+* [Ciphers](#ciphers)
   * [Caesar Cipher](#Caesar-Cipher)
     * [Encrypt](#caesar-cipher-encrypt)
     * [Decrypt](#caesar-cipher-decrypt)
@@ -16,12 +17,17 @@ A simple JS library for Cryptography
     * [Encrypt](#one-time-pad-encrypt)
     * [Decrypt](#one-time-pad-decrypt)
     * [Configuration](#one-time-pad-decrypt)
+* [Encoding](#encoding)
   * [Base64](#base64)
     * [Encode](#base64-encode)
     * [Decode](#base64-decode)
   * [Base32](#base32)
     * [Encode](#base32-encode)
-    * [Decode](#base32-decode) 
+    * [Decode](#base32-decode)
+* [Hashing](#hashing)
+  * [MD2](#md2)
+  * [MD4](#md4)
+  * [MD5](#md5)
 * [Flags](#flags)
 ***
 ## Initiate
@@ -42,8 +48,14 @@ Here is the current list of cryptographies
 | OneTimePad | ✔️ | ✔️ | ❌ | ❌ | Encryps/Decrypts string using One-Time pad |
 | Base64 | ✔️ | ✔️ | ❌ | ❌ | Encodes/Decodes string in base64 |
 | Base32 | ✔️ | ✔️ | ❌ | ❌ | Encodes/Decodes string in base32 |
+| MD2 | ❌ | ❌ | ✔️ | ❌ | Hashes the string in MD2 |
+| MD4 | ❌ | ❌ | ✔️ | ❌ | Hashes the string in MD4 |
+| MD5 | ❌ | ❌ | ✔️ | ❌ | Hashes the string in MD5 |
 
 ***
+## Ciphers
+List of ciphers
+
 ### Caesar Cipher
 Caesar Cipher is a common cipher that shifts letters based on key value
 
@@ -173,7 +185,7 @@ console.log(Cryptography.CaesarCipher.settings({chars: `${Cryptography.options.U
 }
 */
 ```
-***
+
 ### Vigenère Cipher
 Vigenère Cipher, just like Caesar Cipher, uses string length as a key.
 
@@ -200,8 +212,6 @@ console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.
 console.log(Cryptography.VigenereCipher.settings({repeatMode:Cryptography.flags.KEY_MODE_REPEAT}).decrypt('LXFOPVEFRNHR', 'LEMON')); //ATTACKATDAWN
 ```
 
-***
-
 ### One-Time Pad
 Encryption technique utilizing a one-time pre-shared key at least as long as the encrypted message
 
@@ -222,6 +232,9 @@ console.log(Cryptography.OneTimePad.settings({repeatMode:true}).decrypt('EIEH', 
 
 ***
 
+## Encoding
+This is a list of encodings/decodings you can have.
+
 ### Base64
 Base64 is an encoded text by a group of binary-to-text using 64 symbols
 
@@ -237,8 +250,6 @@ Decode Base64 string
 console.log(Cryptography.Base64.decode('VGVzdA=='));
 ```
 
-***
-
 ### Base32
 Base32 is an encoded text by a group of binary-to-text using 64 symbols
 
@@ -252,6 +263,29 @@ console.log(Cryptography.Base32.encode('Test')); //KRSXG5A=
 Decode Base32 string
 ```js
 console.log(Cryptography.Base32.decode('KRSXG5A=')); //Test
+```
+
+***
+
+## Hashing
+This is a list of hash algorithms.
+
+### MD2
+To encode MD2
+```js
+console.log(Cryptography.hash.md2('A')); //08e2a3810d8426443ecacaf47aeedd17
+```
+
+### MD4
+To encode MD2
+```js
+console.log(Cryptography.hash.md4('A')); //d5ef20eeb3f75679f86cf57f93ed0ffe
+```
+
+### MD5
+To encode MD2
+```js
+console.log(Cryptography.hash.md5('A')); //7fc56270e7a70fa81a5935b72eacbe29
 ```
 
 
