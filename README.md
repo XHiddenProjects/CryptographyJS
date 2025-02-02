@@ -3,7 +3,7 @@ A simple JS library for Cryptography
 
 ## Table of Contents
 * [Initiate](#Initiate)
-* [Ciphers](#Cryptographies)
+* [Cryptographies](#Cryptographies)
 * [Ciphers](#ciphers)
   * [Caesar Cipher](#Caesar-Cipher)
     * [Encrypt](#caesar-cipher-encrypt)
