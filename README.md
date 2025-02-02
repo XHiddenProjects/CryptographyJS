@@ -18,7 +18,10 @@ A simple JS library for Cryptography
     * [Configuration](#one-time-pad-decrypt)
   * [Base64](#base64)
     * [Encode](#base64-encode)
-    * [Decode](#base64-decode) 
+    * [Decode](#base64-decode)
+  * [Base32](#base32)
+    * [Encode](#base32-encode)
+    * [Decode](#base32-decode) 
   * [Flags](#flags)
 ***
 ## Initiate
@@ -38,6 +41,7 @@ Here is the current list of cryptographies
 | VigenereCipher| ✔️ | ✔️ | ❌ | ❌ |          Encodes/Decodes string in Vigenere Cipher |
 | OneTimePad | ✔️ | ✔️ | ❌ | ❌ | Encryps/Decrypts string using One-Time pad |
 | Base64 | ✔️ | ✔️ | ❌ | ❌ | Encodes/Decodes string in base64 |
+| Base32 | ✔️ | ✔️ | ❌ | ❌ | Encodes/Decodes string in base32 |
 
 ***
 ### Caesar Cipher
@@ -232,6 +236,24 @@ Decode Base64 string
 ```js
 console.log(Cryptography.Base64.decode('VGVzdA=='));
 ```
+
+***
+
+### Base32
+Base32 is an encoded text by a group of binary-to-text using 64 symbols
+
+#### Base32 (Encode)
+Encode string using base32
+```js
+console.log(Cryptography.Base32.encode('Test')); //KRSXG5A=
+```
+
+#### Base32 (Decode)
+Decode Base32 string
+```js
+console.log(Cryptography.Base32.decode('KRSXG5A=')); //Test
+```
+
 
 ***
 
