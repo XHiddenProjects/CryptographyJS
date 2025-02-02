@@ -22,7 +22,7 @@ A simple JS library for Cryptography
   * [Base32](#base32)
     * [Encode](#base32-encode)
     * [Decode](#base32-decode) 
-  * [Flags](#flags)
+* [Flags](#flags)
 ***
 ## Initiate
 To load up the script:
@@ -257,7 +257,7 @@ console.log(Cryptography.Base32.decode('KRSXG5A=')); //Test
 
 ***
 
-### Flags
+## Flags
 These are some options that you can use for parameters. **Note:** This only works for `.settings(...)` methods for any acceptable cryptography.
 | Constant | Value | Type | Path |
 | -------- | ----- | ---- | ---- |
