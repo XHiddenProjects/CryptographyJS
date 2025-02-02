@@ -27,9 +27,9 @@ A simple JS library for Cryptography
 ## Initiate
 To load up the script:
 ```html
-<script src="./cryptography.js" type="text/javascript"></script>
-<script>
-//Cryptography goes here
+<script type="module">
+ import {Cryptography} from './cryptography.js';
+ //Cryptography goes here
 </script>
 ```
 ***
