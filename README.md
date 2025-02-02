@@ -266,5 +266,5 @@ These are some options that you can use for parameters. **Note:** This only work
 | NUMBERS | '0123456789' | String | _Cryptography.flags.NUMBERS_ |
 | SPACE | ' ' | String | _Cryptography.flags.SPACE_ |
 | SPECIAL_CHARS | '!@#$%^&*()_+-=[]{}\|;:\'",.<>?/~' | String | _Cryptography.flags.SPECIAL_CHARS_ |
-| KEY_MODE_REPEAT | TRUE | Boolean | _Cryptography.flags.KEY_MODE_REPEAT__ |
+| KEY_MODE_REPEAT | TRUE | Boolean | _Cryptography.flags.KEY_MODE_REPEAT_ |
 
