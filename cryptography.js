@@ -1,6 +1,6 @@
-import md2 from './extra/md2.js';
-import md4 from './extra/md4.js';
-import md5 from './extra/md5.js';
+import md2 from './hashes/md2.min.js';
+import md4 from './hashes/md4.min.js';
+import md5 from './hashes/md5.min.js';
 
 export var Cryptography = {
     flags: Object.freeze({
@@ -461,14 +461,48 @@ Cryptography.Base32 = {
     }
 };
 
-Cryptography.hash = {    
+Cryptography.hash = {  
+    /**
+     * Converts string to MD2 hash
+     * @param {String} str Message to hash
+     * @returns {String} MD2 hash
+     */  
     md2: (str) => {
         return md2(str);
     },
+    /**
+     * Converts string to MD4 hash
+     * @param {String} str Message to hash
+     * @returns {String} MD4 hash
+     */
     md4: (str)=>{
         return md4(str);
     },
+    /**
+     * Converts string to MD5 hash
+     * @param {String} str Message to hash
+     * @returns {String} MD5 hash
+     */
     md5: (str)=>{
         return md5(str);
+    },
+    /**
+     * Hashes a string based on hash algorithm
+     * @param {String|String[]} algo algorithm
+     * @param {String} str String to hash
+     * @returns {String} Hashed string
+     */
+    hash: (algo,str)=>{
+        if(Array.isArray(algo)){
+            const hashes={};
+            algo.forEach((algo)=>{
+                if(!algo.match(/MD2|MD4|MD5/i)) throw new ReferenceError('Invalid algorithm: Check out the documentation | https://github.com/XHiddenProjects/CryptographyJS?tab=readme-ov-file#hashing');
+                hashes[algo.toLowerCase()] = Cryptography.hash[algo.toLocaleLowerCase()](str);
+            });
+            return hashes;
+        }else{
+            if(!algo.match(/MD2|MD4|MD5/i)) throw new ReferenceError('Invalid algorithm: Check out the documentation | https://github.com/XHiddenProjects/CryptographyJS?tab=readme-ov-file#hashing');
+            return Cryptography.hash[algo.toLocaleLowerCase()](str);
+        }
     }
 }
