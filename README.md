@@ -50,16 +50,16 @@ Here is the current list of cryptographies
 - **Forcable**: If the cryptography can be _brute-forced_
 - **Description**: A small description of what cryptography can do.
 
-| Name | Encryptable/Encodable | Decryptable/Decodable | Hashable | Forcable | Description |
+| Name | Encryptable/Encodable | Decryptable/Decodable | Forcable | Description |
 | ---- | ------ | ------ | ---- | ----------- | ----------- |
-| CaesarCipher  | ✔️  | ✔️ |  ❌   |    ✔️      | Encodes/Decodes string in Caesar Cipher |
-| VigenereCipher| ✔️ | ✔️ | ❌ | ❌ |          Encodes/Decodes string in Vigenere Cipher |
-| OneTimePad | ✔️ | ✔️ | ❌ | ❌ | Encryps/Decrypts string using One-Time pad |
-| Base64 | ✔️ | ✔️ | ❌ | ❌ | Encodes/Decodes string in base64 |
-| Base32 | ✔️ | ✔️ | ❌ | ❌ | Encodes/Decodes string in base32 |
-| MD2 | ❌ | ❌ | ✔️ | ❌ | Hashes the string in MD2 |
-| MD4 | ❌ | ❌ | ✔️ | ❌ | Hashes the string in MD4 |
-| MD5 | ❌ | ❌ | ✔️ | ❌ | Hashes the string in MD5 |
+| CaesarCipher  | ✔️  | ✔️   |    ✔️      | Encodes/Decodes string in Caesar Cipher |
+| VigenereCipher| ✔️ | ✔️ | ❌  |          Encodes/Decodes string in Vigenere Cipher |
+| OneTimePad | ✔️ | ✔️ | ❌  | Encryps/Decrypts string using One-Time pad |
+| Base64 | ✔️ | ✔️ | ❌  | Encodes/Decodes string in base64 |
+| Base32 | ✔️ | ✔️ | ❌ | Encodes/Decodes string in base32 |
+| MD2 | ✔️ | ❌  | ❌ | Hashes the string in MD2 |
+| MD4 | ✔️ | ❌  | ❌ | Hashes the string in MD4 |
+| MD5 | ✔️ | ❌  | ❌ | Hashes the string in MD5 |
 
 ***
 ## Ciphers
