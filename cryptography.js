@@ -1,5 +1,6 @@
 import md2 from './extra/md2.js';
 import md4 from './extra/md4.js';
+import md5 from './extra/md5.js';
 
 export var Cryptography = {
     flags: Object.freeze({
@@ -466,5 +467,8 @@ Cryptography.hash = {
     },
     md4: (str)=>{
         return md4(str);
+    },
+    md5: (str)=>{
+        return md5(str);
     }
 }
