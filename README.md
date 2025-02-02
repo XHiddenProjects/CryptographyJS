@@ -41,6 +41,15 @@ To load up the script:
 ***
 ## Cryptographies
 Here is the current list of cryptographies
+
+**KEY**
+- **Name**: Name of the cryptography
+- **Encryptable/Encodable**: If the cryptography can be encrypted/encoded
+- **Decryptable/Decodable**: If the cryptography can be decrypted/decoded
+- **Hashable**: If the cryptography can be hashed
+- **Forcable**: If the cryptography can be _brute-forced_
+- **Description**: A small description of what cryptography can do.
+
 | Name | Encryptable/Encodable | Decryptable/Decodable | Hashable | Forcable | Description |
 | ---- | ------ | ------ | ---- | ----------- | ----------- |
 | CaesarCipher  | ✔️  | ✔️ |  ❌   |    ✔️      | Encodes/Decodes string in Caesar Cipher |
