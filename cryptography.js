@@ -366,7 +366,7 @@ Cryptography.OneTimePad = {
         return decrypted;
     }
 };
-//Uses base64
+//Uses Base64
 Cryptography.Base64 = {
     /**
      * Encode string to Base64
@@ -383,5 +383,76 @@ Cryptography.Base64 = {
      */
     decode: (str) => {
         return decodeURIComponent(atob(str).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+    }
+}
+//Uses Base32
+Cryptography.Base32 = {
+    chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567',
+    /**
+     * Encode string to Base32
+     * @param {String} str String to encode
+     * @returns {String} Encoded string
+     */
+    encode:(str)=>{
+        // Convert the input string to a buffer
+        const buffer = new TextEncoder().encode(str);
+        let output = '';
+        let bits = 0;
+        let value = 0;
+        
+        for (let i = 0; i < buffer.length; i++) {
+            bits += 8; // Add 8 bits for each byte
+            value = (value << 8) | buffer[i]; // Shift left and add the byte
+
+            while (bits >= 5) { // While we have at least 5 bits
+                output += Cryptography.Base32.chars[(value >> (bits - 5)) & 0x1F]; // Get the next character
+                bits -= 5; // Decrease bits by 5
+            }
+        }
+        
+        // Handle remaining bits
+        if (bits > 0) {
+            output += Cryptography.Base32.chars[(value << (5 - bits)) & 0x1F];
+        }
+        
+        // Padding with '=' characters
+        while (output.length % 8 !== 0) {
+            output += '=';
+        }
+        
+        return output;
+    },
+    /**
+     * Decodes Base32 string
+     * @param {String} str Encoded string
+     * @returns {String} Decoded string
+     */
+    decode: (str)=>{
+        // Remove padding
+        const padding = str.indexOf('=');
+        if (padding !== -1) {
+            str = str.slice(0, padding);
+        }
+        
+        str = str.toUpperCase(); // Ensure uppercase
+        let output = [];
+        let bits = 0;
+        let value = 0;
+
+        for (let char of str) {
+            const charIndex = Cryptography.Base32.chars.indexOf(char);
+            if (charIndex === -1) continue; // Skip invalid characters
+
+            value = (value << 5) | charIndex; // Shift left and add the character index
+            bits += 5; // Increase the bits count
+
+            while (bits >= 8) { // While we have at least 8 bits
+                output.push((value >> (bits - 8)) & 0xFF); // Get the byte
+                bits -= 8; // Decrease bits by 8
+            }
+        }
+        
+        // Convert output back to string
+        return new TextDecoder().decode(new Uint8Array(output));
     }
 }
