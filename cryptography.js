@@ -345,7 +345,7 @@ Cryptography.OneTimePad = {
         return decrypted;
     }
 };
-
+//Uses base64
 Cryptography.base64 = {
     /**
      * Encode string to Base64
