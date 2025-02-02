@@ -289,6 +289,7 @@ Cryptography.VigenereCipher = {
         return decoded;
     }
 };
+
 // Uses the OneTime-Pad algorithm
 Cryptography.OneTimePad = {
     chars: Cryptography.flags.UPPERCASE_LETTERS,
@@ -315,8 +316,11 @@ Cryptography.OneTimePad = {
         else;
         let encrypted = '';
         for (let i = 0; i < str.length; i++) {
-            const charCode = str.charCodeAt(i) ^ key.charCodeAt(i);
-            encrypted += String.fromCharCode(charCode);
+            let charIndex = Cryptography.OneTimePad.chars.indexOf(str[i]);
+            let keyIndex = Cryptography.OneTimePad.chars.indexOf(key[i]);
+            if (charIndex === -1 || keyIndex === -1) throw new RangeError('Invalid character in input or key');
+            let encryptedIndex = (charIndex + keyIndex) % Cryptography.OneTimePad.chars.length;
+            encrypted += Cryptography.OneTimePad.chars[encryptedIndex];
         }
         return encrypted;
     },
@@ -332,20 +336,12 @@ Cryptography.OneTimePad = {
         else;
         let decrypted = '';
         for (let i = 0; i < str.length; i++) {
-            const charCode = str.charCodeAt(i) ^ key.charCodeAt(i);
-            decrypted += String.fromCharCode(charCode);
+            let charIndex = Cryptography.OneTimePad.chars.indexOf(str[i]);
+            let keyIndex = Cryptography.OneTimePad.chars.indexOf(key[i]);
+            if (charIndex === -1 || keyIndex === -1) throw new RangeError('Invalid character in input or key');
+            let decryptedIndex = (charIndex - keyIndex + Cryptography.OneTimePad.chars.length) % Cryptography.OneTimePad.chars.length;
+            decrypted += Cryptography.OneTimePad.chars[decryptedIndex];
         }
         return decrypted;
-    },
-    /**
-     * Converts to binary
-     * @param {String} encrypted Convert encrypted string to binary
-     * @returns {String} Binary format
-     */
-    toBin(encrypted){
-        return encrypted.split('').map(char => {
-            let binary = char.charCodeAt(0).toString(2);
-            return '00000000'.slice(binary.length) + binary;
-        }).join(' ');
     }
 };
