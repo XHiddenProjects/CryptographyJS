@@ -123,5 +123,7 @@ class MD2 {
         return hex;
     }
 }
-
-export default MD2;
+const md2 = (msg)=>{
+    return (new MD2()).md2(msg);
+}
+export default md2;
