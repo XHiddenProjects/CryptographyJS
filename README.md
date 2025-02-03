@@ -302,7 +302,7 @@ console.log(Cryptography.hash.md5('A')); //7fc56270e7a70fa81a5935b72eacbe29
 ### SHA-1
 To hash SHA-1
 ```js
-console.log(Cryptography.hash.sha1('A'));
+console.log(Cryptography.hash.sha1('Cybersecurity')); //7b7a8d8e9435d1064967f8ba2a43eee1f7804f5e
 ```
 
 ### Hash
