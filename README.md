@@ -29,6 +29,8 @@ A simple JS library for Cryptography
   * [MD4](#md4)
   * [MD5](#md5)
   * [SHA-1](#sha-1)
+  * [SHA-224](#sha-224)
+  * [SHA-256](#sha-256)
   * [Hash](#hash)
 * [Flags](#flags)
 ***
@@ -62,6 +64,8 @@ Here is the current list of cryptographies
 | MD4 | ✔️ | ❌  | ❌ | Hashes the string in MD4 |
 | MD5 | ✔️ | ❌  | ❌ | Hashes the string in MD5 |
 | SHA-1 | ✔️ | ❌  | ❌ | Hashes the string in SHA-1 |
+| SHA-224 | ✔️ | ❌  | ❌ | Hashes the string in SHA-224 |
+| SHA-256 | ✔️ | ❌  | ❌ | Hashes the string in SHA-256 |
 
 ***
 ## Ciphers
@@ -304,6 +308,19 @@ To hash SHA-1
 ```js
 console.log(Cryptography.hash.sha1('Cybersecurity')); //7b7a8d8e9435d1064967f8ba2a43eee1f7804f5e
 ```
+
+### SHA-224
+To hash SHA-224
+```js
+console.log(Cryptography.hash.sha224('Hello World!')); //4575bb4ec129df6380cedde6d71217fe0536f8ffc4e18bca530a7a1b
+```
+
+### SHA-256
+To hash SHA-256
+```js
+console.log(Cryptography.hash.sha256('Test')); //532eaabd9574880dbf76b9b8cc00832c20a6ec113d682299550d7a6e0f345e25
+```
+
 
 ### Hash
 ```js
