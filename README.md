@@ -31,6 +31,7 @@ A simple JS library for Cryptography
   * [SHA-1](#sha-1)
   * [SHA-224](#sha-224)
   * [SHA-256](#sha-256)
+  * [SHA-384](#sha-384)
   * [Hash](#hash)
 * [Flags](#flags)
 ***
@@ -66,6 +67,7 @@ Here is the current list of cryptographies
 | SHA-1 | ✔️ | ❌  | ❌ | Hashes the string in SHA-1 |
 | SHA-224 | ✔️ | ❌  | ❌ | Hashes the string in SHA-224 |
 | SHA-256 | ✔️ | ❌  | ❌ | Hashes the string in SHA-256 |
+| SHA-384 | ✔️ | ❌  | ❌ | Hashes the string in SHA-384 |
 
 ***
 ## Ciphers
@@ -319,6 +321,12 @@ console.log(Cryptography.hash.sha224('Hello World!')); //4575bb4ec129df6380cedde
 To hash SHA-256
 ```js
 console.log(Cryptography.hash.sha256('Test')); //532eaabd9574880dbf76b9b8cc00832c20a6ec113d682299550d7a6e0f345e25
+```
+
+### SHA-384
+To hash SHA-384
+```js
+console.log(Cryptography.hash.sha384('Google')); //2af172307e1317b9c04187cc7f664e5ea7907df8523c409bc2f226ab05f3ca031a966d86db52bc3a3600bd97bd8f2e50
 ```
 
 
