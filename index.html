@@ -8,7 +8,8 @@
 
         <script type="module">
             import {Cryptography} from './cryptography.js';
-            console.log(Cryptography.hash.hash('sha1','A'));
+            console.log(Cryptography.OneTimePad.settings({repeatMode:true}).encrypt('HELLO WORLD','YEK'));
+            console.log(Cryptography.OneTimePad.settings({repeatMode:true}).decrypt('FIVJSGMVVB','YEK'));
         </script>
     </body>
 </html>
