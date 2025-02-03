@@ -28,6 +28,8 @@ A simple JS library for Cryptography
   * [MD2](#md2)
   * [MD4](#md4)
   * [MD5](#md5)
+  * [SHA-1](#sha-1)
+  * [Hash](#hash)
 * [Flags](#flags)
 ***
 ## Initiate
@@ -59,6 +61,7 @@ Here is the current list of cryptographies
 | MD2 | ✔️ | ❌  | ❌ | Hashes the string in MD2 |
 | MD4 | ✔️ | ❌  | ❌ | Hashes the string in MD4 |
 | MD5 | ✔️ | ❌  | ❌ | Hashes the string in MD5 |
+| SHA-1 | ✔️ | ❌  | ❌ | Hashes the string in SHA-1 |
 
 ***
 ## Ciphers
@@ -279,22 +282,35 @@ console.log(Cryptography.Base32.decode('KRSXG5A=')); //Test
 This is a list of hash algorithms.
 
 ### MD2
-To encode MD2
+To hash MD2
 ```js
 console.log(Cryptography.hash.md2('A')); //08e2a3810d8426443ecacaf47aeedd17
 ```
 
 ### MD4
-To encode MD2
+To hash MD4
 ```js
 console.log(Cryptography.hash.md4('A')); //d5ef20eeb3f75679f86cf57f93ed0ffe
 ```
 
 ### MD5
-To encode MD2
+To hash MD2
 ```js
 console.log(Cryptography.hash.md5('A')); //7fc56270e7a70fa81a5935b72eacbe29
 ```
+
+### SHA-1
+To hash SHA-1
+```js
+console.log(Cryptography.hash.sha1('A'));
+```
+
+### Hash
+```js
+const algo = 'md2', str='String';
+console.log(Cryptography.hash.hash(algo,str));
+```
+
 
 
 ***
