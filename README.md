@@ -39,7 +39,7 @@ A simple JS library for Cybersecurity usage
 To load up the script:
 ```html
 <script type="module">
- import {Cryptography} from './cryptography.min.js';
+ import {Cryptography} from './cyber.min.js';
  //Cryptography goes here
 </script>
 ```
