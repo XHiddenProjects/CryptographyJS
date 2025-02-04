@@ -352,7 +352,7 @@ How to use:
  * @param {String|{site: string|null, filetype: string|null, link: string|null, cache: string|null, intitle: string|null, inurl: string|null}} query Query search to hack
  * @returns {void} Opens url in new tab
  */
-Hacking.google(`${Hacking.flags.IN_TITLE('"Index Of"')} ${Hacking.flags.FILE_TYPE('sql;)}`);
+Hacking.google(`${Hacking.flags.IN_TITLE('"Index Of"')} ${Hacking.flags.FILE_TYPE('sql')}`);
 ```
 2. As an object
 ```js
