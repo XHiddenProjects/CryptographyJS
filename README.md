@@ -343,7 +343,29 @@ console.log(Cryptography.hash.hash(algo,str));
 These are some hacking tools that can be used
 
 ### Google Hacking
-
+Google hacking, aka. Google Dorking, is an information-gathering technique used by an attacker leveraging advanced Google searching techniques.
+How to use:
+1. As an string
+```js
+/**
+ * Opens a google hacking URL
+ * @param {String|{site: string|null, filetype: string|null, link: string|null, cache: string|null, intitle: string|null, inurl: string|null}} query Query search to hack
+ * @returns {void} Opens url in new tab
+ */
+Hacking.google(`${Hacking.flags.IN_TITLE('"Index Of"')} ${Hacking.flags.FILE_TYPE('sql;)}`);
+```
+2. As an object
+```js
+/**
+ * Opens a google hacking URL
+ * @param {String|{site: string|null, filetype: string|null, link: string|null, cache: string|null, intitle: string|null, inurl: string|null}} query Query search to hack
+ * @returns {void} Opens url in new tab
+ */
+Hacking.google({
+  intitle: '"index of"',
+  filetype: 'sql'
+});
+```
 
 ***
 
