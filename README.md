@@ -33,7 +33,9 @@ A simple JS library for Cybersecurity usage
      * [SHA-256](#sha-256)
      * [SHA-384](#sha-384)
      * [Hash](#hash)
-   * [Flags](#flags)
+* [Hacking](#hacking)
+  * [Google Hacking](#google-hacking) 
+* [Flags](#flags)
 ***
 ## Initiate
 To load up the script:
@@ -336,6 +338,11 @@ const algo = 'md2', str='String';
 console.log(Cryptography.hash.hash(algo,str));
 ```
 
+***
+## Hacking
+These are some hacking tools that can be used
+
+### Google Hacking
 
 
 ***
@@ -350,4 +357,11 @@ These are some options that you can use for parameters. **Note:** This only work
 | SPACE | ' ' | String | _Cryptography.flags.SPACE_ |
 | SPECIAL_CHARS | '!@#$%^&*()_+-=[]{}\|;:\'",.<>?/~' | String | _Cryptography.flags.SPECIAL_CHARS_ |
 | KEY_MODE_REPEAT | TRUE | Boolean | _Cryptography.flags.KEY_MODE_REPEAT_ |
+| PARSE_URL | Function | URL | _Hacking.flags.PARSE_URL_ |
+| SITE | Function | String | _Hacking.flags.SITE_ |
+| FILE_TYPE | Function | String | _Hacking.flags.FILE_TYPE_ |
+| LINK | Function | String | _Hacking.flags.LINK_ |
+| CACHE | Function | String | _Hacking.flags.CACHE_ |
+| IN_TITLE | Function | String | _Hacking.flags.IN_TITLE_ |
+| IN_URL | Function | String | _Hacking.flags.IN_URL_ |
 
