@@ -1,5 +1,5 @@
-# CryptographyJS
-A simple JS library for Cryptography
+# CyberJS
+A simple JS library for Cybersecurity usage
 
 ## Table of Contents
 * [Initiate](#Initiate)
