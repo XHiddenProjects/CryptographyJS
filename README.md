@@ -371,9 +371,15 @@ Hacking.google({
 ## Ping
 ping is a computer network administration software utility used to test the reachability of a host on an Internet Protocol (IP) network
 ```js
-Hacking.ping('IP/hostname',(e)=>{
+/**
+ * Pings IP address
+ * @param {String} ip IP/URL Address
+ * @param {Function} callback Callback
+ * @param {Number} [count=4] How many times to call
+ */
+Hacking.ping('ip',(e)=>{
   console.log(e);
-});
+},4);
 ```
 
 ***
