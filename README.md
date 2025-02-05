@@ -34,7 +34,8 @@ A simple JS library for Cybersecurity usage
      * [SHA-384](#sha-384)
      * [Hash](#hash)
 * [Hacking](#hacking)
-  * [Google Hacking](#google-hacking) 
+  * [Google Hacking](#google-hacking)
+  * [Pinging](#ping)
 * [Flags](#flags)
 ***
 ## Initiate
@@ -364,6 +365,14 @@ Hacking.google(`${Hacking.flags.IN_TITLE('"Index Of"')} ${Hacking.flags.FILE_TYP
 Hacking.google({
   intitle: '"index of"',
   filetype: 'sql'
+});
+```
+
+## Ping
+ping is a computer network administration software utility used to test the reachability of a host on an Internet Protocol (IP) network
+```js
+Hacking.ping('IP/hostname',(e)=>{
+  console.log(e);
 });
 ```
 
