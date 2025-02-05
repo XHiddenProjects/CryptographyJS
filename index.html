@@ -8,7 +8,9 @@
 
         <script type="module">
             import {Cryptography, Hacking} from './cyber.js';
-            Hacking.google({intitle: 'flowlab'});
+            Hacking.ping('http://flowlab.com',(e)=>{
+                console.log(e);
+            });
         </script>
     </body>
 </html>
