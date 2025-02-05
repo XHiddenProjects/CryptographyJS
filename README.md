@@ -392,7 +392,7 @@ Data scraping used for extracting data from websites
  * @param {"html"|"xml"|"tree"} [format='html'] Format of the output
  * @returns {JSON}
  */
-Hacking.scrape('http://localhost/cyberJS/index.html',(e)=>{
+Hacking.scrape('url',(e)=>{
   console.log(e);
  },'tree');
 ```
