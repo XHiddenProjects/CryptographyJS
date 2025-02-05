@@ -4,13 +4,13 @@
         <title>Cyber.js</title>
     </head>
     <body>
-
+        <div class="xml"></div>
 
         <script type="module">
             import {Cryptography, Hacking} from './cyber.js';
-            Hacking.ping('http://flowlab.com',(e)=>{
+            Hacking.scrape('http://localhost/cyberJS/index.html',(e)=>{
                 console.log(e);
-            });
+            },'tree');
         </script>
     </body>
 </html>
