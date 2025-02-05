@@ -36,6 +36,7 @@ A simple JS library for Cybersecurity usage
 * [Hacking](#hacking)
   * [Google Hacking](#google-hacking)
   * [Pinging](#ping)
+  * [Web Scraping](#web-scraping)
 * [Flags](#flags)
 ***
 ## Initiate
@@ -381,6 +382,21 @@ Hacking.ping('ip',(e)=>{
   console.log(e);
 },4);
 ```
+## Web Scraping
+Data scraping used for extracting data from websites
+```js
+/**
+ * URL to scrape
+ * @param {String} url URL to scrape
+ * @param {Function} callback Callback 
+ * @param {"html"|"xml"|"tree"} [format='html'] Format of the output
+ * @returns {JSON}
+ */
+Hacking.scrape('http://localhost/cyberJS/index.html',(e)=>{
+  console.log(e);
+ },'tree');
+```
+
 
 ***
 
