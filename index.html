@@ -7,10 +7,8 @@
         <div class="xml"></div>
 
         <script type="module">
-            import {Cryptography, Hacking} from './cyber.js';
-            Hacking.scrape('http://localhost/cyberJS/index.html',(e)=>{
-                console.log(e);
-            },'tree');
+            import {Cryptography, Hacking, Detections} from './cyber.js';
+            console.log(Detections.browser.apis());
         </script>
     </body>
 </html>
