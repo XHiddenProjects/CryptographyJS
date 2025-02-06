@@ -37,6 +37,9 @@ A simple JS library for Cybersecurity usage
   * [Google Hacking](#google-hacking)
   * [Pinging](#ping)
   * [Web Scraping](#web-scraping)
+* [Detections](#detections)
+  * [Device](#device)
+  * [Browser](#browser)
 * [Flags](#flags)
 ***
 ## Initiate
@@ -396,7 +399,64 @@ Hacking.scrape('url',(e)=>{
   console.log(e);
  },'tree');
 ```
+***
+## Detections
+These are some detections to see the users browser and device information
 
+### Device
+Here are ways to detect users' device information
+```js
+/**
+ * Checks for virtual machine
+ * @returns {Boolean} True if VM, False if not
+ */
+Detections.device.isVM();
+/**
+ * Get OS
+ * @returns {String} OS
+ */
+Detections.device.os();
+/**
+ * Returns the OS architecture
+ * @returns {String} architecture
+ */
+Detections.device.arch();
+/**
+ * Returns the screen information
+ * @returns {{height: number, width: number, depth: number, orientation: ScreenOrientation, extended: boolean}} Screen information
+ */
+Detections.device.screen();
+```
+
+### Browser
+Here are ways you can get users' browser information
+```js
+/**
+ * Get Full browser
+ * @returns {String} Browser information
+ */
+Detections.browser.get();
+/**
+ * Get Browser name
+ * @returns {String} Browser name
+ */
+Detections.browser.browser();
+/**
+ * Get Browser Version
+ * @returns {String} Browsers version
+ */
+Detections.browser.version();
+/**
+ * Returns the browsers media
+ * @returns {{display: string, hover: boolean, orientation: "landscape"|"portrait", pointer:"fine"|"coarse"|"none", colorScheme: "dark"|"light"|"none"}} Browsers media information
+ */
+Detections.browser.media();
+/**
+ * Returns the available Web APIs
+ * @returns {String[]}
+ */
+Detections.browser.apis();
+```
 
 ***
 
