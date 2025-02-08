@@ -42,6 +42,7 @@ A Cybersecurity scripts that allows anyone to _check-attack-fix (CAF)_ on the si
     * [DOM](#xss-dom)
     * [Reflected](#xss-reflected)
     * [Sanitize](#xss-sanitize)
+  * [SQL Injection](#sql-injection) 
 * [Detections](#detections)
   * [Device](#device)
   * [Browser](#browser)
@@ -450,6 +451,16 @@ This code will automatically sanitize URLs and inputs so it doesn't hacked
   * @returns {String} Sanitized URL and inputs
   */
 Hacking.xss.sanitize();
+```
+
+## SQL Injection
+This code will insert a basic SQL injection code into the textarea or textbox.
+```js
+/**
+ * Checks for SQL Injection
+ * @param {String} [sql=`' OR 1=1;#`] SQL code 
+ */
+Hacking.sql(sql);
 ```
 
 ***
