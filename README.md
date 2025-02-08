@@ -431,10 +431,20 @@ Hacking.xss.dom('alert("test");');
 ```
 
 ### XSS-Reflected
+Injects a script code from backend XMLHttpRequest
+```js
+/**
+  * Injects code through HTTP requests
+  * @param {String} url URL to target
+  * @param {String} key Key to return injection
+  * @param {String} JSCode code to inject
+  */
+Hacking.xss.reflected(URL,key,JSCode);
+```
 
 ***
 ## Detections
-These are some detections to see the users browser and device information
+These are some detections to see the users' browser and device information
 
 ### Device
 Here are ways to detect users' device information
