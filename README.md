@@ -1,5 +1,7 @@
 # CyberJS
-A Cybersecurity scripts that allows anyone to _check-attack-fix (CAF)_ on the site to make sure nobody can hack and steal information that you might not want to steal. 
+A Cybersecurity scripts that allows anyone to _check-attack-fix (CAF)_ on the site to make sure nobody can hack and steal information that you might not want to steal.
+
+**Do not misuse this software for illegal activity, this is for production testing purposes or educational use!**
 
 ## Table of Contents
 * [Initiate](#Initiate)
