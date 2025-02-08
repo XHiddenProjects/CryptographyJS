@@ -1,5 +1,5 @@
 # CyberJS
-A simple JS library for Cybersecurity usage
+A Cybersecurity scripts that allows anyone to _check-attack-fix (CAF)_ on the site to make sure nobody can hack and steal information that you might not want to steal. 
 
 ## Table of Contents
 * [Initiate](#Initiate)
@@ -440,6 +440,16 @@ Injects a script code from backend XMLHttpRequest
   * @param {String} JSCode code to inject
   */
 Hacking.xss.reflected(URL,key,JSCode);
+```
+
+### XSS-Sanitize
+This code will automatically sanitize URLs and inputs so it doesn't hacked
+```js
+/**
+  * Sanitizes string
+  * @returns {String} Sanitized URL and inputs
+  */
+Hacking.xss.sanitize();
 ```
 
 ***
