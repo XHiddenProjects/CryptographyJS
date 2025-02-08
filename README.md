@@ -37,6 +37,11 @@ A simple JS library for Cybersecurity usage
   * [Google Hacking](#google-hacking)
   * [Pinging](#ping)
   * [Web Scraping](#web-scraping)
+  * [XSS](#xss)
+    * [Persistent](#xss-persistent)
+    * [DOM](#xss-dom)
+    * [Reflected](#xss-reflected)
+    * [Sanitize](#xss-sanitize)
 * [Detections](#detections)
   * [Device](#device)
   * [Browser](#browser)
@@ -399,6 +404,34 @@ Hacking.scrape('url',(e)=>{
   console.log(e);
  },'tree');
 ```
+
+## XSS
+Cross-site scripting is a common hacking technique here is the same tests and security measures to prevent this
+
+### XSS-Persistent
+XSS-Persistent is using a Script code inside of inputs, this will render a script value for any input to test out
+```js
+/**
+  * Renders a js code to all inputs to make sure that it cannot
+  * @param {String} JS code to inject
+  * @returns {void}
+  */
+Hacking.xss.persistent('alert("test")');
+```
+
+### XSS-DOM
+Injects a script code into the URL to inject
+```js
+/**
+  * Injects JavaScript code through URL
+  * @param {String} JSCode code to inject
+  * @returns {void}
+  */
+Hacking.xss.dom('alert("test");');
+```
+
+### XSS-Reflected
+
 ***
 ## Detections
 These are some detections to see the users browser and device information
