@@ -58,6 +58,15 @@ To load up the script:
  //Script goes here
 </script>
 ```
+**OR**
+You can use the CDN
+```html
+<script type="module">
+import {Cryptography, Hacking, Detections} from "https://cdn.jsdelivr.net/gh/XHiddenProjects/CyberWeb@1.0.1/cyber.min.js"
+ //Script goes here
+</script>
+```
+
 ***
 ## Cryptographies
 Here is the current list of cryptographies
