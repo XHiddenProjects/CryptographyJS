@@ -62,7 +62,7 @@ To load up the script:
 You can use the CDN
 ```html
 <script type="module">
-import {Cryptography, Hacking, Detections} from "https://cdn.jsdelivr.net/gh/XHiddenProjects/CyberWeb@1.0.5/cyber.min.js"
+import {Cryptography, Hacking, Detections} from "https://cdn.jsdelivr.net/gh/XHiddenProjects/CyberWeb@1.0.6/cyber.min.js"
  //Script goes here
 </script>
 ```
